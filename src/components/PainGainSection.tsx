@@ -44,11 +44,6 @@ const PainGainSection = () => {
                 className="w-full aspect-[4/5] object-cover object-right rounded-sm"
               />
             </div>
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-background/95 border border-border rounded-sm px-6 py-3 text-center">
-              <p className="font-body text-xs text-foreground">
-                3 года практики · 40+ реализованных объектов · Симферополь и ЮБК
-              </p>
-            </div>
           </div>
         </div>
       </div>
