@@ -9,6 +9,7 @@ import Portfolio from "./pages/Portfolio.tsx";
 import ProjectCase from "./pages/ProjectCase.tsx";
 import Services from "./pages/Services.tsx";
 import Process from "./pages/Process.tsx";
+import Contacts from "./pages/Contacts.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
