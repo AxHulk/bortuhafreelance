@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import { useScrollFadeIn } from "@/hooks/useScrollFadeIn";
 import { projects, categoryLabels, type ProjectCategory } from "@/data/projects";
 import iconResidential from "@/assets/portfolio-icon-residential.png";
-import iconResort from "@/assets/portfolio-icon-resort.png";
+
 import iconCommercial from "@/assets/portfolio-icon-commercial.png";
 import icon3dviz from "@/assets/portfolio-icon-3dviz.png";
 
