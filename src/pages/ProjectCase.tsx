@@ -155,7 +155,7 @@ const ProjectCase = () => {
           </h2>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="/#contacts"
+              href="/contacts"
               className="inline-flex h-12 px-8 items-center rounded-sm bg-primary text-primary-foreground font-body text-sm font-medium tracking-wide hover:bg-primary/90 transition-colors"
             >
               Обсудить проект →

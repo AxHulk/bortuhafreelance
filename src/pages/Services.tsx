@@ -192,7 +192,7 @@ const Services = () => {
                   )}
 
                   <a
-                    href="/#contacts"
+                    href="/contacts"
                     className={`w-full inline-flex h-11 items-center justify-center rounded-sm font-body text-sm font-medium tracking-wide transition-colors ${
                       tariff.highlight
                         ? "bg-primary text-primary-foreground hover:bg-primary/90"
@@ -236,7 +236,7 @@ const Services = () => {
                   ))}
                 </ul>
                 <a
-                  href="/#contacts"
+                  href="/contacts"
                   className="inline-flex h-11 px-8 items-center rounded-sm bg-primary text-primary-foreground font-body text-sm font-medium tracking-wide hover:bg-primary/90 transition-colors"
                 >
                   Обсудить проект →
@@ -259,7 +259,7 @@ const Services = () => {
                     {service.description}
                   </p>
                   <a
-                    href="/#contacts"
+                    href="/contacts"
                     className="inline-flex h-10 px-6 items-center rounded-sm border border-primary text-sm font-body font-medium text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
                   >
                     Узнать подробнее →
@@ -294,7 +294,7 @@ const Services = () => {
             Готовы обсудить ваш проект?
           </h2>
           <a
-            href="/#contacts"
+            href="/contacts"
             className="inline-flex h-12 px-8 items-center rounded-sm bg-primary text-primary-foreground font-body text-sm font-medium tracking-wide hover:bg-primary/90 transition-colors"
           >
             Обсудить проект →

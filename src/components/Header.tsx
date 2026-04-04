@@ -8,7 +8,7 @@ const navItems = [
   { label: "Портфолио", href: "/portfolio", isPage: true },
   { label: "Услуги и цены", href: "/services", isPage: true },
   { label: "Этапы работы", href: "/process", isPage: true },
-  { label: "Контакты", href: "#contacts" },
+  { label: "Контакты", href: "/contacts", isPage: true },
 ];
 
 const Header = () => {
@@ -33,11 +33,7 @@ const Header = () => {
 
   const handleCta = () => {
     setIsOpen(false);
-    if (location.pathname !== "/") {
-      navigate("/#contacts");
-      return;
-    }
-    document.querySelector("#contacts")?.scrollIntoView({ behavior: "smooth" });
+    navigate("/contacts");
   };
 
   return (

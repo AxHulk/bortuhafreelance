@@ -188,7 +188,7 @@ const Process = () => {
             Готовы сделать первый шаг?
           </h2>
           <a
-            href="/#contacts"
+            href="/contacts"
             className="inline-flex h-12 px-8 items-center rounded-sm bg-primary text-primary-foreground font-body text-sm font-medium tracking-wide hover:bg-primary/90 transition-colors"
           >
             Записаться на консультацию →
