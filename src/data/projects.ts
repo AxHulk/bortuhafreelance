@@ -72,6 +72,21 @@ import hallwayZhigulina3 from "@/assets/portfolio/hallway-zhigulina-3.jpg";
 import balustradeViz1 from "@/assets/portfolio/balustrade-viz-1.jpg";
 import balustradeViz2 from "@/assets/portfolio/balustrade-viz-2.jpg";
 
+// Optimized WebP thumbnails for portfolio grid
+import thumbBalustradeViz1 from "@/assets/portfolio/thumbs/balustrade-viz-1-thumb.webp";
+import thumbHallwayZhigulina1 from "@/assets/portfolio/thumbs/hallway-zhigulina-1-thumb.webp";
+import thumbKidsRoom1 from "@/assets/portfolio/thumbs/kids-room-1-thumb.webp";
+import thumbGarageLiving1 from "@/assets/portfolio/thumbs/garage-living-1-thumb.webp";
+import thumbMarbleKitchen1 from "@/assets/portfolio/thumbs/marble-kitchen-1-thumb.webp";
+import thumbHolidayHouseLiving1 from "@/assets/portfolio/thumbs/holiday-house-living-1-thumb.webp";
+import thumbCoffeeShopSimferopol1 from "@/assets/portfolio/thumbs/coffee-shop-simferopol-1-thumb.webp";
+import thumbCompactBedroom1 from "@/assets/portfolio/thumbs/compact-bedroom-1-thumb.webp";
+import thumbBedroom1 from "@/assets/portfolio/thumbs/bedroom-1-thumb.webp";
+import thumbSaunaBath1 from "@/assets/portfolio/thumbs/sauna-bath-1-thumb.webp";
+import thumbSushiMango1 from "@/assets/portfolio/thumbs/sushi-mango-1-thumb.webp";
+import thumbSushiCafe1 from "@/assets/portfolio/thumbs/sushi-cafe-1-thumb.webp";
+
+
 export const projects: Project[] = [
   {
     id: "balustrade-3d-visualization",
