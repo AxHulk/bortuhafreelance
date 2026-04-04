@@ -43,8 +43,30 @@ import sushiMango3 from "@/assets/portfolio/sushi-mango-3.jpg";
 import saunaBath1 from "@/assets/portfolio/sauna-bath-1.jpg";
 import saunaBath2 from "@/assets/portfolio/sauna-bath-2.jpg";
 import saunaBath3 from "@/assets/portfolio/sauna-bath-3.jpg";
+import bedroom1 from "@/assets/portfolio/bedroom-1.jpg";
+import bedroom2 from "@/assets/portfolio/bedroom-2.jpg";
+import bedroom3 from "@/assets/portfolio/bedroom-3.jpg";
 
 export const projects: Project[] = [
+  {
+    id: "bedroom-forest-accent",
+    title: "Спальня с акцентом лесной зелени",
+    area: "18 м²",
+    location: "Симферополь",
+    year: "2024",
+    style: "Современный минимализм",
+    category: "residential",
+    task: "Создать камерную спальню с выразительным характером, тактильными материалами и мягкой атмосферой уюта",
+    status: "Концепт",
+    description: "Современная спальня, в которой глубокие древесные панели, графичный чёрный светильник, мягкая текстура стен и приглушённая природная палитра формируют атмосферу спокойной роскоши. Акценты в оттенке лесной зелени оживляют интерьер, а тёплый свет подчёркивает архитектуру пространства и делает его особенно камерным. Это интерьер про баланс строгих линий, тактильных материалов и мягких форм мебели — минимализм здесь работает не на холодную отстранённость, а на комфорт и ощущение дома.",
+    coverGradient: "from-foreground/20 to-secondary/20",
+    coverImage: bedroom1,
+    gallery: [
+      { src: bedroom1, alt: "Спальня — общий вид с кроватью и акцентным светильником" },
+      { src: bedroom2, alt: "Спальня — вид на зону кровати и стеклянный шкаф" },
+      { src: bedroom3, alt: "Спальня — ракурс с кроватью и деревянными панелями" },
+    ],
+  },
   {
     id: "sauna-bathroom",
     title: "Санузел и душевая при сауне",
