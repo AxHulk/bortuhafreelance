@@ -50,8 +50,34 @@ import compactBedroom1 from "@/assets/portfolio/compact-bedroom-1.jpg";
 import compactBedroom2 from "@/assets/portfolio/compact-bedroom-2.jpg";
 import compactBedroom3 from "@/assets/portfolio/compact-bedroom-3.jpg";
 import coffeeShopSimferopol1 from "@/assets/portfolio/coffee-shop-simferopol-1.jpg";
+import holidayHouseLiving1 from "@/assets/portfolio/holiday-house-living-1.jpg";
+import holidayHouseLiving2 from "@/assets/portfolio/holiday-house-living-2.jpg";
+import holidayHouseLiving3 from "@/assets/portfolio/holiday-house-living-3.jpg";
+import holidayHouseLiving4 from "@/assets/portfolio/holiday-house-living-4.jpg";
+import holidayHouseLiving5 from "@/assets/portfolio/holiday-house-living-5.jpg";
 
 export const projects: Project[] = [
+  {
+    id: "holiday-house-living-simferopol",
+    title: "Кухня-гостиная в домике для отдыха",
+    area: "48 м²",
+    location: "Симферополь",
+    year: "2024",
+    style: "Современный эко-минимализм",
+    category: "residential",
+    task: "Создать объединённую кухню-гостиную с атмосферой отдыха, натуральными материалами и мягкой визуальной пластикой",
+    status: "Концепт",
+    description: "Кухня-гостиная в домике для отдыха в Симферополе, построенная на сочетании тёплого дерева, природных оттенков и спокойной открытой композиции. Пространство объединяет кухню, столовую и мягкую зону в единый сценарий расслабленного отдыха, где каждая зона логично перетекает в следующую. Натуральные фактуры, крупные подвесные светильники, мягкая мебель и акценты в приглушённой зелени формируют интерьер с ощущением уюта, воздуха и тихой приватности. Это пространство про комфортную жизнь за городом и визуальное спокойствие без лишней перегруженности.",
+    coverGradient: "from-secondary/30 to-foreground/10",
+    coverImage: holidayHouseLiving1,
+    gallery: [
+      { src: holidayHouseLiving1, alt: "Кухня-гостиная — общий вид мягкой зоны и кухни" },
+      { src: holidayHouseLiving2, alt: "Кухня-гостиная — вид на обеденную зону и кухню" },
+      { src: holidayHouseLiving3, alt: "Кухня-гостиная — фронтальный вид на мягкую группу" },
+      { src: holidayHouseLiving4, alt: "Кухня-гостиная — кухонный остров у панорамного окна" },
+      { src: holidayHouseLiving5, alt: "Кухня-гостиная — вид на кухню и обеденный стол" },
+    ],
+  },
   {
     id: "coffee-shop-simferopol",
     title: "Дизайн кофейни в Симферополе",
