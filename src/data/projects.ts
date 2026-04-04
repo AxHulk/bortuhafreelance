@@ -34,7 +34,30 @@ export const categoryLabels: Record<string, string> = {
   "3dviz": "3D Визуализация",
 };
 
+import sushiCafe1 from "@/assets/portfolio/sushi-cafe-1.jpg";
+import sushiCafe2 from "@/assets/portfolio/sushi-cafe-2.jpg";
+import sushiCafe3 from "@/assets/portfolio/sushi-cafe-3.jpg";
+
 export const projects: Project[] = [
+  {
+    id: "sushi-cafe-fm",
+    title: "Посадочная зона суши-кафе",
+    area: "45 м²",
+    location: "Симферополь, ТЦ «ФМ»",
+    year: "2024",
+    style: "Современный, эко-акценты",
+    category: "commercial",
+    task: "Зонирование посадочных мест, интеграция бренда в пространство ТЦ, эргономика потока",
+    status: "Реализован",
+    description: "Проект посадочной зоны для суши-кафе в торговом центре, где важно было создать не просто несколько столиков, а заметное, комфортное и визуально притягательное пространство. Выразительная палитра — насыщенный фиолетовый, мягкий жёлтый и живая зелень — задаёт запоминающийся характер. Арочные перегородки, подвесные растения, мягкие диваны и компактные столики формируют камерную атмосферу в открытом пространстве торгового центра. Решение учитывает визуальную идентичность бренда, эргономику и особенности трафика.",
+    coverGradient: "from-primary/20 to-secondary/40",
+    coverImage: sushiCafe1,
+    gallery: [
+      { src: sushiCafe1, alt: "Посадочная зона — вид сверху" },
+      { src: sushiCafe2, alt: "Арочные перегородки и подвесная зелень" },
+      { src: sushiCafe3, alt: "Общий вид зоны кафе" },
+    ],
+  },
   {
     id: "apartments-yalta",
     title: "Апартаменты в Ялте",
