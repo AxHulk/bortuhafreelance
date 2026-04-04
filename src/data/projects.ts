@@ -58,8 +58,32 @@ import holidayHouseLiving5 from "@/assets/portfolio/holiday-house-living-5.jpg";
 import marbleKitchen1 from "@/assets/portfolio/marble-kitchen-1.jpg";
 import marbleKitchen2 from "@/assets/portfolio/marble-kitchen-2.jpg";
 import marbleKitchen3 from "@/assets/portfolio/marble-kitchen-3.jpg";
+import garageLiving1 from "@/assets/portfolio/garage-living-1.jpg";
+import garageLiving2 from "@/assets/portfolio/garage-living-2.jpg";
+import garageLiving3 from "@/assets/portfolio/garage-living-3.jpg";
+import garageLiving4 from "@/assets/portfolio/garage-living-4.jpg";
 
 export const projects: Project[] = [
+  {
+    id: "garage-to-living-kitchen",
+    title: "Кухня-гостиная в бывшей пристройке",
+    area: "30 м²",
+    location: "Симферополь",
+    year: "2024",
+    style: "Современный минимализм",
+    category: "residential",
+    task: "Превратить помещение пристройки в полноценную кухню-гостиную и создать удобное, эстетичное пространство для жизни",
+    status: "Реализован",
+    description: "Проект кухни-гостиной, созданной на месте бывшей пристройки, которая позволила увеличить полезную площадь дома и превратить техническое помещение в комфортную жилую зону. Пространство решено в спокойной современной палитре с мягкими фактурами, тёплым деревом и лаконичными световыми акцентами. Особое внимание уделено практичности кухни: рабочая зона оформлена немаркими материалами, а стильная штукатурка защищена стеклянным скинали, что делает интерьер одновременно эстетичным и удобным в эксплуатации. В результате получилась светлая, функциональная кухня-гостиная, где бытовой сценарий работает на комфорт, а сама трансформация пространства становится главной идеей проекта.",
+    coverGradient: "from-secondary/20 to-foreground/15",
+    coverImage: garageLiving1,
+    gallery: [
+      { src: garageLiving1, alt: "Кухня-гостиная — мягкая зона и обеденный стол" },
+      { src: garageLiving2, alt: "Кухня — рабочая зона с тёмными фасадами" },
+      { src: garageLiving3, alt: "Кухня-гостиная — вид на столовую группу" },
+      { src: garageLiving4, alt: "Кухня-гостиная — общий вид пространства с диваном" },
+    ],
+  },
   {
     id: "marble-kitchen-island",
     title: "Кухня с островом и патагонским мрамором",
