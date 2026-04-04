@@ -5,18 +5,18 @@ import Footer from "@/components/Footer";
 import { useScrollFadeIn } from "@/hooks/useScrollFadeIn";
 import { projects, categoryLabels, type ProjectCategory } from "@/data/projects";
 import iconResidential from "@/assets/portfolio-icon-residential.png";
-import iconResort from "@/assets/portfolio-icon-resort.png";
+
 import iconCommercial from "@/assets/portfolio-icon-commercial.png";
 import icon3dviz from "@/assets/portfolio-icon-3dviz.png";
 
 const filterIcons: Record<string, string> = {
   residential: iconResidential,
-  resort: iconResort,
+  
   commercial: iconCommercial,
   "3dviz": icon3dviz,
 };
 
-const filters = ["all", "residential", "resort", "commercial", "3dviz"] as const;
+const filters = ["all", "residential", "commercial", "3dviz"] as const;
 
 const Portfolio = () => {
   const [active, setActive] = useState<string>("all");

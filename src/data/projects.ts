@@ -29,7 +29,7 @@ export interface Project {
 export const categoryLabels: Record<string, string> = {
   all: "Все проекты",
   residential: "Жилые интерьеры",
-  resort: "Курортная недвижимость",
+  
   commercial: "Коммерческие пространства",
   "3dviz": "3D Визуализация",
 };

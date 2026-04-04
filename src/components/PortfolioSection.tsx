@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useScrollFadeIn } from "@/hooks/useScrollFadeIn";
 import { projects, categoryLabels } from "@/data/projects";
 
-const categories = ["all", "residential", "resort", "commercial"] as const;
+const categories = ["all", "residential", "commercial", "3dviz"] as const;
 
 const PortfolioSection = () => {
   const [active, setActive] = useState<string>("all");
