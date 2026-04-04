@@ -55,8 +55,30 @@ import holidayHouseLiving2 from "@/assets/portfolio/holiday-house-living-2.jpg";
 import holidayHouseLiving3 from "@/assets/portfolio/holiday-house-living-3.jpg";
 import holidayHouseLiving4 from "@/assets/portfolio/holiday-house-living-4.jpg";
 import holidayHouseLiving5 from "@/assets/portfolio/holiday-house-living-5.jpg";
+import marbleKitchen1 from "@/assets/portfolio/marble-kitchen-1.jpg";
+import marbleKitchen2 from "@/assets/portfolio/marble-kitchen-2.jpg";
+import marbleKitchen3 from "@/assets/portfolio/marble-kitchen-3.jpg";
 
 export const projects: Project[] = [
+  {
+    id: "marble-kitchen-island",
+    title: "Кухня с островом и патагонским мрамором",
+    area: "24 м²",
+    location: "Симферополь",
+    year: "2024",
+    style: "Современная элегантность",
+    category: "residential",
+    task: "Создать выразительную кухню с островом, где благородная палитра и акцентные материалы формируют ощущение статуса и уюта",
+    status: "Концепт",
+    description: "Один из недавних проектов кухни с островом, где сдержанная элегантность сочетается с выразительной фактурой материалов. Серые фасады с тонкой золотой фурнитурой создают благородную основу, а остров и фартук из патагонского мрамора становятся главным акцентом интерьера благодаря сложному природному рисунку. Хрустальная люстра добавляет лёгкую декоративность, а мягкие барные стулья и тёплая палитра дерева делают пространство более уютным и жилым. В результате интерьер получился одновременно статусным, светлым и очень тактильным — с балансом классической элегантности и современной чистоты линий.",
+    coverGradient: "from-secondary/20 to-primary/15",
+    coverImage: marbleKitchen1,
+    gallery: [
+      { src: marbleKitchen1, alt: "Кухня — фронтальный вид на фасады и мраморный фартук" },
+      { src: marbleKitchen2, alt: "Кухня — зона столовой и декоративная акцентная стена" },
+      { src: marbleKitchen3, alt: "Кухня — остров из патагонского мрамора крупным планом" },
+    ],
+  },
   {
     id: "holiday-house-living-simferopol",
     title: "Кухня-гостиная в домике для отдыха",
