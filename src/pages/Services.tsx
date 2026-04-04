@@ -262,11 +262,11 @@ const Services = () => {
                   <p className="font-body text-xs text-muted-foreground leading-relaxed mb-6">
                     {service.description}
                   </p>
-                  <ContactDialog subject={service.name}>
+                  <ExtraServiceDialog serviceName={service.name}>
                     <button className="inline-flex h-10 px-6 items-center rounded-sm border border-primary text-sm font-body font-medium text-primary hover:bg-primary hover:text-primary-foreground transition-colors">
                       Узнать подробнее →
                     </button>
-                  </ContactDialog>
+                  </ExtraServiceDialog>
                 </div>
               ))}
             </div>
