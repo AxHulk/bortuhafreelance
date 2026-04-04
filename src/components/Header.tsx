@@ -33,11 +33,7 @@ const Header = () => {
 
   const handleCta = () => {
     setIsOpen(false);
-    if (location.pathname !== "/") {
-      navigate("/contacts");
-      return;
-    }
-    document.querySelector("#contacts")?.scrollIntoView({ behavior: "smooth" });
+    navigate("/contacts");
   };
 
   return (
