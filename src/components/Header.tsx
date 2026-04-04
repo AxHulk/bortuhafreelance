@@ -5,7 +5,7 @@ import logo from "@/assets/logo-nf.png";
 
 const navItems = [
   { label: "Обо мне", href: "/about", isPage: true },
-  { label: "Портфолио", href: "#portfolio" },
+  { label: "Портфолио", href: "/portfolio", isPage: true },
   { label: "Услуги и цены", href: "#services" },
   { label: "Этапы работы", href: "#workflow" },
   { label: "Контакты", href: "#contacts" },
