@@ -46,8 +46,30 @@ import saunaBath3 from "@/assets/portfolio/sauna-bath-3.jpg";
 import bedroom1 from "@/assets/portfolio/bedroom-1.jpg";
 import bedroom2 from "@/assets/portfolio/bedroom-2.jpg";
 import bedroom3 from "@/assets/portfolio/bedroom-3.jpg";
+import compactBedroom1 from "@/assets/portfolio/compact-bedroom-1.jpg";
+import compactBedroom2 from "@/assets/portfolio/compact-bedroom-2.jpg";
+import compactBedroom3 from "@/assets/portfolio/compact-bedroom-3.jpg";
 
 export const projects: Project[] = [
+  {
+    id: "compact-bedroom-135",
+    title: "Спальня 13,5 м² для семейной пары",
+    area: "13,5 м²",
+    location: "Симферополь",
+    year: "2024",
+    style: "Современный минимализм",
+    category: "residential",
+    task: "Разместить полноценное спальное место и системы хранения на компактной площади, сохранив ощущение простора",
+    status: "Реализован",
+    description: "Компактная спальня для семейной пары, где на площади 13,5 м² нужно было разместить всё необходимое для комфортной жизни и при этом сохранить визуальную лёгкость. Решение построено на принципах практичного минимализма: встроенные системы хранения, спокойная светлая палитра, графичные линии освещения и аккуратные акценты в текстиле создают ощущение порядка и простора. Интерьер получился сдержанным, функциональным и уютным — без перегрузки, но с вниманием к каждой детали повседневного комфорта.",
+    coverGradient: "from-secondary/25 to-foreground/10",
+    coverImage: compactBedroom1,
+    gallery: [
+      { src: compactBedroom1, alt: "Компактная спальня — общий вид с кроватью и шкафом" },
+      { src: compactBedroom2, alt: "Компактная спальня — туалетный столик и мягкое освещение" },
+      { src: compactBedroom3, alt: "Компактная спальня — вид на кровать и подвесной светильник" },
+    ],
+  },
   {
     id: "bedroom-forest-accent",
     title: "Спальня с акцентом лесной зелени",
