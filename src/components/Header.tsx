@@ -60,7 +60,7 @@ const Header = () => {
         </nav>
 
         <button
-          onClick={() => scrollTo("#contacts")}
+          onClick={handleCta}
           className="hidden lg:inline-flex h-10 px-6 items-center rounded-sm border border-primary bg-transparent text-sm font-body font-medium text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
         >
           Обсудить проект
