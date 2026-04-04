@@ -1,11 +1,11 @@
 import { useScrollFadeIn } from "@/hooks/useScrollFadeIn";
+import { Link } from "react-router-dom";
 
 const AboutSection = () => {
   const ref = useScrollFadeIn();
 
   return (
     <section id="about" className="py-24 lg:py-32 relative">
-      {/* Decorative pattern */}
       <div className="absolute inset-0 opacity-[0.03]" style={{
         backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231F2025' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
       }} />
@@ -35,10 +35,16 @@ const AboutSection = () => {
               на жилых интерьерах, курортной недвижимости и коммерческих 
               пространствах — от уютных квартир до бутик-отелей.
             </p>
-            <p className="font-body text-sm leading-relaxed text-muted-foreground">
+            <p className="font-body text-sm leading-relaxed text-muted-foreground mb-8">
               Каждая деталь продумана: от планировочного решения до подбора 
               текстиля и освещения. Результат — интерьер, в котором хочется жить.
             </p>
+            <Link
+              to="/about"
+              className="inline-flex items-center text-sm font-body font-medium text-primary hover:text-primary/80 transition-colors"
+            >
+              Подробнее обо мне →
+            </Link>
           </div>
         </div>
       </div>
