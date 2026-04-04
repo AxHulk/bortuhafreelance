@@ -69,8 +69,28 @@ import kidsRoom4 from "@/assets/portfolio/kids-room-4.jpg";
 import hallwayZhigulina1 from "@/assets/portfolio/hallway-zhigulina-1.jpg";
 import hallwayZhigulina2 from "@/assets/portfolio/hallway-zhigulina-2.jpg";
 import hallwayZhigulina3 from "@/assets/portfolio/hallway-zhigulina-3.jpg";
+import balustradeViz1 from "@/assets/portfolio/balustrade-viz-1.jpg";
+import balustradeViz2 from "@/assets/portfolio/balustrade-viz-2.jpg";
 
 export const projects: Project[] = [
+  {
+    id: "balustrade-3d-visualization",
+    title: "3D-визуализация кованых балясин",
+    area: "—",
+    location: "Симферополь",
+    year: "2024",
+    style: "Классика",
+    category: "3dviz",
+    task: "Создать фотореалистичную визуализацию кованых балясин в интерьере для маркетинговых материалов кузнечного двора",
+    status: "Реализован",
+    description: "Маркетинговая 3D-визуализация для производителя кованых изделий. Задача — показать продукцию не изолированно, а в контексте премиального интерьера, чтобы потенциальный заказчик сразу увидел, как балясины работают в пространстве. Парадная лестница с мраморными ступенями, ореховым паркетом «ёлочкой» и витыми балясинами с золотым декором передаёт масштаб, качество исполнения и статус изделий. Визуализация выполнена в 3ds Max с акцентом на детализацию металлической фурнитуры, текстуру дерева и игру света на полированных поверхностях.",
+    coverImage: balustradeViz1,
+    coverGradient: "from-primary/20 to-secondary/25",
+    gallery: [
+      { src: balustradeViz1, alt: "Детализация кованых балясин с золотым декором" },
+      { src: balustradeViz2, alt: "Парадная лестница с мраморными ступенями — общий вид" },
+    ],
+  },
   {
     id: "hallway-zhigulina-roscha",
     title: "Прихожая в ЖК «Жигулина Роща»",
