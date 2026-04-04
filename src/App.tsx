@@ -11,6 +11,7 @@ import Services from "./pages/Services.tsx";
 import Process from "./pages/Process.tsx";
 import Contacts from "./pages/Contacts.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
