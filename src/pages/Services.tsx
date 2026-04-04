@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ContactDialog from "@/components/ContactDialog";
 import { useScrollFadeIn } from "@/hooks/useScrollFadeIn";
 import { Check } from "lucide-react";
 import iconConcept from "@/assets/service-icon-concept.png";
@@ -143,7 +144,7 @@ const Services = () => {
               {designTariffs.map((tariff) => (
                 <div
                   key={tariff.name}
-                  className={`relative rounded-sm p-8 transition-shadow ${
+                  className={`relative rounded-sm p-8 flex flex-col transition-shadow ${
                     tariff.highlight
                       ? "border-2 border-primary shadow-lg bg-background"
                       : "border border-border bg-background"
@@ -191,16 +192,19 @@ const Services = () => {
                     </p>
                   )}
 
-                  <a
-                    href="/contacts"
-                    className={`w-full inline-flex h-11 items-center justify-center rounded-sm font-body text-sm font-medium tracking-wide transition-colors ${
-                      tariff.highlight
-                        ? "bg-primary text-primary-foreground hover:bg-primary/90"
-                        : "border border-primary text-primary hover:bg-primary hover:text-primary-foreground"
-                    }`}
-                  >
-                    Выбрать тариф →
-                  </a>
+                  <div className="mt-auto">
+                    <ContactDialog subject={`Тариф «${tariff.name}»`}>
+                      <button
+                        className={`w-full inline-flex h-11 items-center justify-center rounded-sm font-body text-sm font-medium tracking-wide transition-colors ${
+                          tariff.highlight
+                            ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                            : "border border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+                        }`}
+                      >
+                        Выбрать тариф →
+                      </button>
+                    </ContactDialog>
+                  </div>
                 </div>
               ))}
             </div>
@@ -235,12 +239,11 @@ const Services = () => {
                     </li>
                   ))}
                 </ul>
-                <a
-                  href="/contacts"
-                  className="inline-flex h-11 px-8 items-center rounded-sm bg-primary text-primary-foreground font-body text-sm font-medium tracking-wide hover:bg-primary/90 transition-colors"
-                >
-                  Обсудить проект →
-                </a>
+                <ContactDialog subject="3D Визуализация">
+                  <button className="inline-flex h-11 px-8 items-center rounded-sm bg-primary text-primary-foreground font-body text-sm font-medium tracking-wide hover:bg-primary/90 transition-colors">
+                    Обсудить проект →
+                  </button>
+                </ContactDialog>
               </div>
             </div>
           )}
@@ -258,12 +261,11 @@ const Services = () => {
                   <p className="font-body text-xs text-muted-foreground leading-relaxed mb-6">
                     {service.description}
                   </p>
-                  <a
-                    href="/contacts"
-                    className="inline-flex h-10 px-6 items-center rounded-sm border border-primary text-sm font-body font-medium text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
-                  >
-                    Узнать подробнее →
-                  </a>
+                  <ContactDialog subject={service.name}>
+                    <button className="inline-flex h-10 px-6 items-center rounded-sm border border-primary text-sm font-body font-medium text-primary hover:bg-primary hover:text-primary-foreground transition-colors">
+                      Узнать подробнее →
+                    </button>
+                  </ContactDialog>
                 </div>
               ))}
             </div>
@@ -293,12 +295,11 @@ const Services = () => {
           <h2 className="font-heading text-3xl sm:text-4xl font-semibold text-foreground mb-8">
             Готовы обсудить ваш проект?
           </h2>
-          <a
-            href="/contacts"
-            className="inline-flex h-12 px-8 items-center rounded-sm bg-primary text-primary-foreground font-body text-sm font-medium tracking-wide hover:bg-primary/90 transition-colors"
-          >
-            Обсудить проект →
-          </a>
+          <ContactDialog subject="Обсуждение проекта">
+            <button className="inline-flex h-12 px-8 items-center rounded-sm bg-primary text-primary-foreground font-body text-sm font-medium tracking-wide hover:bg-primary/90 transition-colors">
+              Обсудить проект →
+            </button>
+          </ContactDialog>
         </div>
       </section>
 
