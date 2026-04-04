@@ -16,7 +16,7 @@ const filterIcons: Record<string, string> = {
   "3dviz": icon3dviz,
 };
 
-const filters = ["all", "residential", "resort", "commercial", "3dviz"] as const;
+const filters = ["all", "residential", "commercial", "3dviz"] as const;
 
 const Portfolio = () => {
   const [active, setActive] = useState<string>("all");
