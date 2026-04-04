@@ -37,8 +37,30 @@ export const categoryLabels: Record<string, string> = {
 import sushiCafe1 from "@/assets/portfolio/sushi-cafe-1.jpg";
 import sushiCafe2 from "@/assets/portfolio/sushi-cafe-2.jpg";
 import sushiCafe3 from "@/assets/portfolio/sushi-cafe-3.jpg";
+import sushiMango1 from "@/assets/portfolio/sushi-mango-1.jpg";
+import sushiMango2 from "@/assets/portfolio/sushi-mango-2.jpg";
+import sushiMango3 from "@/assets/portfolio/sushi-mango-3.jpg";
 
 export const projects: Project[] = [
+  {
+    id: "sushi-mango",
+    title: "Суши-кафе «О7 Суши-манго»",
+    area: "25 м²",
+    location: "Ялта, набережная Массандры",
+    year: "2024",
+    style: "Японский минимализм",
+    category: "commercial",
+    task: "Планировка take-away точки, цветовая концепция, визуализация",
+    status: "Концепт",
+    description: "Проект суши-кафе формата take away на набережной Массандры. Яркий, запоминающийся образ с акцентом на тёплый оранжевый, чистую геометрию и лаконичную организацию зоны выдачи. Решение учитывает специфику формата — скорость обслуживания, визуальную привлекательность для прохожих и удобство работы персонала. Визуализация выполнена в 3ds Max с применением AI-инструментов для быстрой подачи концепции.",
+    coverGradient: "from-primary/20 to-secondary/40",
+    coverImage: sushiMango1,
+    gallery: [
+      { src: sushiMango1, alt: "Фасад суши-кафе на набережной" },
+      { src: sushiMango2, alt: "Интерьер — зона выдачи и витрина" },
+      { src: sushiMango3, alt: "Рабочая зона кафе" },
+    ],
+  },
   {
     id: "sushi-cafe-fm",
     title: "Посадочная зона суши-кафе",
