@@ -43,7 +43,7 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
       <div className="container mx-auto flex items-center justify-between h-20 px-4 lg:px-8">
-        <a href="#" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+        <a href="/" onClick={(e) => { e.preventDefault(); navigate("/"); window.scrollTo({ top: 0, behavior: "smooth" }); }}>
           <img src={logo} alt="Natali Fursa" className="h-12 w-auto" />
         </a>
 
