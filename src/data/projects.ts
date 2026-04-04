@@ -49,8 +49,26 @@ import bedroom3 from "@/assets/portfolio/bedroom-3.jpg";
 import compactBedroom1 from "@/assets/portfolio/compact-bedroom-1.jpg";
 import compactBedroom2 from "@/assets/portfolio/compact-bedroom-2.jpg";
 import compactBedroom3 from "@/assets/portfolio/compact-bedroom-3.jpg";
+import coffeeShopSimferopol1 from "@/assets/portfolio/coffee-shop-simferopol-1.jpg";
 
 export const projects: Project[] = [
+  {
+    id: "coffee-shop-simferopol",
+    title: "Дизайн кофейни в Симферополе",
+    area: "42 м²",
+    location: "Симферополь",
+    year: "2024",
+    style: "Современный минимализм с loft-акцентами",
+    category: "commercial",
+    task: "Разработать планировочное решение и выразительную визуальную концепцию в формате быстрого дизайн-проекта",
+    status: "Концепт",
+    description: "Проект кофейни в Симферополе, выполненный по тарифу «Быстрый дизайн проект». В основе — продуманное планировочное решение и атмосферная визуализация интерьера, созданная с помощью нейросетей для быстрой и наглядной подачи идеи. Пространство решено в современном минималистичном ключе: тёмная палитра, мягкий сценарий света, фактурные поверхности и лаконичная мебель формируют узнаваемую, уютную среду для гостей. В проект также входит ведомость используемых материалов, мебели, освещения и декора, что делает концепцию не только эффектной, но и прикладной для дальнейшей реализации.",
+    coverGradient: "from-foreground/20 to-secondary/15",
+    coverImage: coffeeShopSimferopol1,
+    gallery: [
+      { src: coffeeShopSimferopol1, alt: "Интерьер кофейни — общий вид зала и барной зоны" },
+    ],
+  },
   {
     id: "compact-bedroom-135",
     title: "Спальня 13,5 м² для семейной пары",
