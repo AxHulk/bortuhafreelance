@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { useNavigate, useLocation } from "react-router-dom";
 import logo from "@/assets/logo-nf.png";
 
 const navItems = [
-  { label: "Обо мне", href: "#about" },
+  { label: "Обо мне", href: "/about", isPage: true },
   { label: "Портфолио", href: "#portfolio" },
   { label: "Услуги и цены", href: "#services" },
   { label: "Этапы работы", href: "#workflow" },
@@ -12,11 +13,31 @@ const navItems = [
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  const scrollTo = (href: string) => {
+  const handleNav = (item: typeof navItems[0]) => {
     setIsOpen(false);
-    const el = document.querySelector(href);
+    if (item.isPage) {
+      navigate(item.href);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+    if (location.pathname !== "/") {
+      navigate("/" + item.href);
+      return;
+    }
+    const el = document.querySelector(item.href);
     el?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const handleCta = () => {
+    setIsOpen(false);
+    if (location.pathname !== "/") {
+      navigate("/#contacts");
+      return;
+    }
+    document.querySelector("#contacts")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
