@@ -8,7 +8,7 @@ const navItems = [
   { label: "Портфолио", href: "/portfolio", isPage: true },
   { label: "Услуги и цены", href: "/services", isPage: true },
   { label: "Этапы работы", href: "/process", isPage: true },
-  { label: "Контакты", href: "#contacts" },
+  { label: "Контакты", href: "/contacts", isPage: true },
 ];
 
 const Header = () => {
