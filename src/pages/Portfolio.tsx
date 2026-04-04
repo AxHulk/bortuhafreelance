@@ -11,7 +11,7 @@ import icon3dviz from "@/assets/portfolio-icon-3dviz.png";
 
 const filterIcons: Record<string, string> = {
   residential: iconResidential,
-  resort: iconResort,
+  
   commercial: iconCommercial,
   "3dviz": icon3dviz,
 };
