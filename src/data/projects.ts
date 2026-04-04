@@ -62,8 +62,32 @@ import garageLiving1 from "@/assets/portfolio/garage-living-1.jpg";
 import garageLiving2 from "@/assets/portfolio/garage-living-2.jpg";
 import garageLiving3 from "@/assets/portfolio/garage-living-3.jpg";
 import garageLiving4 from "@/assets/portfolio/garage-living-4.jpg";
+import kidsRoom1 from "@/assets/portfolio/kids-room-1.jpg";
+import kidsRoom2 from "@/assets/portfolio/kids-room-2.jpg";
+import kidsRoom3 from "@/assets/portfolio/kids-room-3.jpg";
+import kidsRoom4 from "@/assets/portfolio/kids-room-4.jpg";
 
 export const projects: Project[] = [
+  {
+    id: "kids-room-balcony",
+    title: "Детская с выходом на балкон",
+    area: "18 м²",
+    location: "Симферополь",
+    year: "2024",
+    style: "Современный нейтральный",
+    category: "residential",
+    task: "Совместить зону отдыха, учёбы и самовыражения в одной комнате, сохранив ощущение простора",
+    status: "Реализован",
+    description: "Детская комната, в которой продумано всё: место для сна, учёбы, игры и уединения. Пространство построено на мягкой нейтральной палитре с тактильными текстурами — рельефные обои, орнаментальные фасады мебели и приглушённое освещение создают уютную, но не перегруженную атмосферу. Рабочая зона у окна оснащена анатомическим креслом и продуманной системой хранения для школьных принадлежностей. А выход на утеплённый балкон превращён в камерный уголок для чтения и общения — с мягким диванчиком, подушками и характерным постером, задающим настроение всему интерьеру.",
+    coverImage: kidsRoom1,
+    coverGradient: "from-primary/20 to-secondary/25",
+    gallery: [
+      { src: kidsRoom1, alt: "Спальная зона с текстильными акцентами" },
+      { src: kidsRoom2, alt: "ТВ-зона с орнаментальной мебелью" },
+      { src: kidsRoom3, alt: "Рабочее место у окна" },
+      { src: kidsRoom4, alt: "Уютный балкон с диванчиком" },
+    ],
+  },
   {
     id: "garage-to-living-kitchen",
     title: "Кухня-гостиная в бывшей пристройке",
