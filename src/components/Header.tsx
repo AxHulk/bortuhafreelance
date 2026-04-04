@@ -88,7 +88,7 @@ const Header = () => {
               </button>
             ))}
             <button
-              onClick={() => scrollTo("#contacts")}
+              onClick={handleCta}
               className="mt-2 h-10 px-6 rounded-sm border border-primary text-sm font-body font-medium text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
             >
               Обсудить проект
