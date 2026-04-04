@@ -51,7 +51,7 @@ const Header = () => {
           {navItems.map((item) => (
             <button
               key={item.href}
-              onClick={() => scrollTo(item.href)}
+              onClick={() => handleNav(item)}
               className="text-sm font-body font-medium tracking-wide text-foreground/80 hover:text-primary transition-colors"
             >
               {item.label}
