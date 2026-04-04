@@ -40,8 +40,30 @@ import sushiCafe3 from "@/assets/portfolio/sushi-cafe-3.jpg";
 import sushiMango1 from "@/assets/portfolio/sushi-mango-1.jpg";
 import sushiMango2 from "@/assets/portfolio/sushi-mango-2.jpg";
 import sushiMango3 from "@/assets/portfolio/sushi-mango-3.jpg";
+import saunaBath1 from "@/assets/portfolio/sauna-bath-1.jpg";
+import saunaBath2 from "@/assets/portfolio/sauna-bath-2.jpg";
+import saunaBath3 from "@/assets/portfolio/sauna-bath-3.jpg";
 
 export const projects: Project[] = [
+  {
+    id: "sauna-bathroom",
+    title: "Санузел и душевая при сауне",
+    area: "12 м²",
+    location: "Симферополь",
+    year: "2024",
+    style: "Современный, натуральные материалы",
+    category: "residential",
+    task: "Создание приватного спа-пространства с акцентом на тактильный комфорт и визуальную чистоту",
+    status: "Реализован",
+    description: "Интерьер санузла и душевой при сауне, построенный на ощущении тишины, тепла и тактильного комфорта. Натуральная древесина, крупноформатный керамогранит, тёмные акценты и мягкая скрытая подсветка формируют атмосферу приватного спа. Круглая линия зеркала смягчает строгую геометрию, а сочетание тёплых древесных текстур и каменных поверхностей добавляет глубину. Душевая продолжает эстетику через натуральные материалы, приглушённую палитру и спокойный свет. Это интерьер про ритуалы, замедление и комфорт, который ощущается в каждой фактуре.",
+    coverGradient: "from-foreground/20 to-primary/15",
+    coverImage: saunaBath1,
+    gallery: [
+      { src: saunaBath1, alt: "Санузел — зона умывальника с круглым зеркалом" },
+      { src: saunaBath2, alt: "Санузел — вид на унитаз и систему хранения" },
+      { src: saunaBath3, alt: "Душевая зона с верхним душем" },
+    ],
+  },
   {
     id: "sushi-mango",
     title: "Суши-кафе «О7 Суши-манго»",
