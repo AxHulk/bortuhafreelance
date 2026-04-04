@@ -66,8 +66,30 @@ import kidsRoom1 from "@/assets/portfolio/kids-room-1.jpg";
 import kidsRoom2 from "@/assets/portfolio/kids-room-2.jpg";
 import kidsRoom3 from "@/assets/portfolio/kids-room-3.jpg";
 import kidsRoom4 from "@/assets/portfolio/kids-room-4.jpg";
+import hallwayZhigulina1 from "@/assets/portfolio/hallway-zhigulina-1.jpg";
+import hallwayZhigulina2 from "@/assets/portfolio/hallway-zhigulina-2.jpg";
+import hallwayZhigulina3 from "@/assets/portfolio/hallway-zhigulina-3.jpg";
 
 export const projects: Project[] = [
+  {
+    id: "hallway-zhigulina-roscha",
+    title: "Прихожая в ЖК «Жигулина Роща»",
+    area: "12 м²",
+    location: "Симферополь",
+    year: "2024",
+    style: "Современная классика",
+    category: "residential",
+    task: "Создать светлую, функциональную прихожую с ощущением простора и продуманным хранением",
+    status: "Реализован",
+    description: "Прихожая — визитная карточка дома, и здесь она задаёт тон всей квартире. Светлая нейтральная палитра, мягкие текстурные обои с геометрическим рисунком и тёплое дерево на полу формируют ощущение лёгкости и уюта с первых шагов. Входная зона оснащена мягкой панелью с вешалками, банкеткой с ящиками для обуви и компактной тумбой — всё необходимое на расстоянии вытянутой руки, без визуального шума. Воздушная люстра-heracleum и точечное освещение добавляют объём, а перспектива коридора с видом на столовую подчёркивает глубину пространства.",
+    coverImage: hallwayZhigulina1,
+    coverGradient: "from-primary/20 to-secondary/25",
+    gallery: [
+      { src: hallwayZhigulina1, alt: "Прихожая — вид от входа" },
+      { src: hallwayZhigulina2, alt: "Коридор с видом на столовую" },
+      { src: hallwayZhigulina3, alt: "Входная зона с мягкой панелью и банкеткой" },
+    ],
+  },
   {
     id: "kids-room-balcony",
     title: "Детская с выходом на балкон",
