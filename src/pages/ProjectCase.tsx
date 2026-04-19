@@ -27,8 +27,44 @@ const ProjectCase = () => {
     );
   }
 
+  const projectUrl = `${SITE_URL}/portfolio/${project.id}`;
+  const ogImage = project.coverImage
+    ? `${SITE_URL}${project.coverImage}`
+    : undefined;
+
+  const creativeWorkJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    name: project.title,
+    description: project.description,
+    creator: {
+      "@type": "Person",
+      name: "Наталия Фурса",
+      url: `${SITE_URL}/about`,
+    },
+    dateCreated: project.year,
+    locationCreated: project.location,
+    url: projectUrl,
+    image: ogImage,
+  };
+
   return (
     <div className="min-h-screen">
+      <SEO
+        title={`${project.title} — ${project.area}, ${project.location}`}
+        description={`${project.description.slice(0, 155)}${project.description.length > 155 ? "…" : ""}`}
+        path={`/portfolio/${project.id}`}
+        type="article"
+        image={ogImage}
+        jsonLd={[
+          creativeWorkJsonLd,
+          breadcrumbJsonLd([
+            { name: "Главная", url: `${SITE_URL}/` },
+            { name: "Портфолио", url: `${SITE_URL}/portfolio` },
+            { name: project.title, url: projectUrl },
+          ]),
+        ]}
+      />
       <Header />
 
       {/* Cover */}
