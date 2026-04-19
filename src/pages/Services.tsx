@@ -101,6 +101,15 @@ const Services = () => {
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Услуги и цены — дизайн интерьеров"
+        description="Тарифы на дизайн-проекты, 3D-визуализацию, авторский надзор и комплектацию объектов в Симферополе и Крыму. От 2 500 ₽/м²."
+        path="/services"
+        jsonLd={breadcrumbJsonLd([
+          { name: "Главная", url: `${SITE_URL}/` },
+          { name: "Услуги и цены", url: `${SITE_URL}/services` },
+        ])}
+      />
       <Header />
 
       {/* Hero */}

@@ -80,6 +80,15 @@ const Process = () => {
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Этапы работы над дизайн-проектом"
+        description="Прозрачный процесс работы над дизайном интерьера: бриф, обмеры, планировка, 3D, рабочая документация, комплектация и авторский надзор."
+        path="/process"
+        jsonLd={breadcrumbJsonLd([
+          { name: "Главная", url: `${SITE_URL}/` },
+          { name: "Этапы работы", url: `${SITE_URL}/process` },
+        ])}
+      />
       <Header />
 
       {/* Hero */}

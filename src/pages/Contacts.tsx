@@ -47,6 +47,18 @@ const Contacts = () => {
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Контакты — обсудить проект интерьера"
+        description="Свяжитесь с дизайнером Наталией Фурсой: телефон +7 (978) 540-09-81, почта bortnik.n.n@yandex.ru. Симферополь, выезд по Крыму, работа онлайн."
+        path="/contacts"
+        jsonLd={[
+          localBusinessJsonLd,
+          breadcrumbJsonLd([
+            { name: "Главная", url: `${SITE_URL}/` },
+            { name: "Контакты", url: `${SITE_URL}/contacts` },
+          ]),
+        ]}
+      />
       <Header />
 
       <section className="pt-32 pb-24 lg:pt-40 lg:pb-32 relative">
