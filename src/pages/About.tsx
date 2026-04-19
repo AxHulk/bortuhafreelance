@@ -1,6 +1,8 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { useScrollFadeIn } from "@/hooks/useScrollFadeIn";
+import { personJsonLd, breadcrumbJsonLd, SITE_URL } from "@/lib/seo";
 import aboutHero from "@/assets/about-hero.jpg";
 import iconPrecision from "@/assets/icon-precision.png";
 import iconElegance from "@/assets/icon-elegance.png";
@@ -14,6 +16,19 @@ const About = () => {
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Обо мне — Наталия Фурса, дизайнер интерьеров"
+        description="Дизайнер и визуализатор интерьера Наталия Фурса. Восемь лет академического образования, опыт в финансовой сфере и более 40 реализованных объектов в Крыму."
+        path="/about"
+        type="profile"
+        jsonLd={[
+          personJsonLd,
+          breadcrumbJsonLd([
+            { name: "Главная", url: `${SITE_URL}/` },
+            { name: "Обо мне", url: `${SITE_URL}/about` },
+          ]),
+        ]}
+      />
       <Header />
 
       {/* Блок 1 — Hero */}

@@ -3,6 +3,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ContactDialog from "@/components/ContactDialog";
 import ExtraServiceDialog from "@/components/ExtraServiceDialog";
+import SEO from "@/components/SEO";
+import { breadcrumbJsonLd, SITE_URL } from "@/lib/seo";
 import { useScrollFadeIn } from "@/hooks/useScrollFadeIn";
 import { Check } from "lucide-react";
 import iconConcept from "@/assets/service-icon-concept.png";
@@ -99,6 +101,15 @@ const Services = () => {
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Услуги и цены — дизайн интерьеров"
+        description="Тарифы на дизайн-проекты, 3D-визуализацию, авторский надзор и комплектацию объектов в Симферополе и Крыму. От 2 500 ₽/м²."
+        path="/services"
+        jsonLd={breadcrumbJsonLd([
+          { name: "Главная", url: `${SITE_URL}/` },
+          { name: "Услуги и цены", url: `${SITE_URL}/services` },
+        ])}
+      />
       <Header />
 
       {/* Hero */}
