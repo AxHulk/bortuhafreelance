@@ -1,8 +1,10 @@
 import { useParams, Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { projects } from "@/data/projects";
 import { useScrollFadeIn } from "@/hooks/useScrollFadeIn";
+import { breadcrumbJsonLd, SITE_URL } from "@/lib/seo";
 
 const ProjectCase = () => {
   const { id } = useParams<{ id: string }>();

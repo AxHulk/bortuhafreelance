@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
+import { localBusinessJsonLd, breadcrumbJsonLd, SITE_URL } from "@/lib/seo";
 import { useScrollFadeIn } from "@/hooks/useScrollFadeIn";
 import iconPhone from "@/assets/contact-icon-phone.png";
 import iconEmail from "@/assets/contact-icon-email.png";

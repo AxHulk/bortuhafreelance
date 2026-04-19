@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
+import { breadcrumbJsonLd, SITE_URL } from "@/lib/seo";
 import { useScrollFadeIn } from "@/hooks/useScrollFadeIn";
 import { ChevronDown } from "lucide-react";
 import iconBrief from "@/assets/process-icon-brief.png";

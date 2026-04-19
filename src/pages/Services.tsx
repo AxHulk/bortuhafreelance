@@ -3,6 +3,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ContactDialog from "@/components/ContactDialog";
 import ExtraServiceDialog from "@/components/ExtraServiceDialog";
+import SEO from "@/components/SEO";
+import { breadcrumbJsonLd, SITE_URL } from "@/lib/seo";
 import { useScrollFadeIn } from "@/hooks/useScrollFadeIn";
 import { Check } from "lucide-react";
 import iconConcept from "@/assets/service-icon-concept.png";

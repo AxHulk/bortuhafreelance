@@ -2,8 +2,10 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { useScrollFadeIn } from "@/hooks/useScrollFadeIn";
 import { projects, categoryLabels, type ProjectCategory } from "@/data/projects";
+import { breadcrumbJsonLd, SITE_URL } from "@/lib/seo";
 import iconResidential from "@/assets/portfolio-icon-residential.png";
 
 import iconCommercial from "@/assets/portfolio-icon-commercial.png";
@@ -27,8 +29,31 @@ const Portfolio = () => {
     ? projects
     : projects.filter((p) => p.category === active);
 
+  const itemListJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    itemListElement: projects.map((p, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      url: `${SITE_URL}/portfolio/${p.id}`,
+      name: p.title,
+    })),
+  };
+
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Портфолио — проекты дизайна интерьеров в Крыму"
+        description="Избранные проекты Наталии Фурсы: жилые интерьеры, коммерческие пространства и 3D-визуализация. Симферополь, ЮБК и онлайн."
+        path="/portfolio"
+        jsonLd={[
+          itemListJsonLd,
+          breadcrumbJsonLd([
+            { name: "Главная", url: `${SITE_URL}/` },
+            { name: "Портфолио", url: `${SITE_URL}/portfolio` },
+          ]),
+        ]}
+      />
       <Header />
 
       {/* Hero */}

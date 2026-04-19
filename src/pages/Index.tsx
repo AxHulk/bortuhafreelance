@@ -7,10 +7,18 @@ import HomeProcessSection from "@/components/HomeProcessSection";
 import ReviewsSection from "@/components/ReviewsSection";
 import LeadMagnetSection from "@/components/LeadMagnetSection";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
+import { localBusinessJsonLd, personJsonLd } from "@/lib/seo";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Natali Fursa — дизайнер интерьеров в Симферополе и Крыму"
+        description="Авторский дизайн интерьеров жилых и коммерческих пространств в Симферополе, Ялте, Севастополе и на ЮБК. 3 года практики, 40+ реализованных объектов."
+        path="/"
+        jsonLd={[localBusinessJsonLd, personJsonLd]}
+      />
       <Header />
       <HeroSection />
       <PainGainSection />
