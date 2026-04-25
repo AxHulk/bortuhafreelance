@@ -14,7 +14,51 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      quiz_leads: {
+        Row: {
+          answers: Json
+          contact_name: string
+          contact_type: string
+          contact_value: string
+          created_at: string
+          file_paths: string[] | null
+          id: string
+          referrer: string | null
+          status: string
+          track: string
+          updated_at: string
+          user_agent: string | null
+        }
+        Insert: {
+          answers?: Json
+          contact_name: string
+          contact_type: string
+          contact_value: string
+          created_at?: string
+          file_paths?: string[] | null
+          id?: string
+          referrer?: string | null
+          status?: string
+          track: string
+          updated_at?: string
+          user_agent?: string | null
+        }
+        Update: {
+          answers?: Json
+          contact_name?: string
+          contact_type?: string
+          contact_value?: string
+          created_at?: string
+          file_paths?: string[] | null
+          id?: string
+          referrer?: string | null
+          status?: string
+          track?: string
+          updated_at?: string
+          user_agent?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
