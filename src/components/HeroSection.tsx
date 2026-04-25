@@ -1,9 +1,11 @@
-import { useNavigate } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
 import heroImg from "@/assets/home-hero.jpg";
+import { useNavigate } from "react-router-dom";
+import { useQuiz } from "@/components/quiz/QuizContext";
 
 const HeroSection = () => {
   const navigate = useNavigate();
+  const { open: openQuiz } = useQuiz();
 
   return (
     <section className="relative min-h-screen flex items-end pb-20 lg:pb-24 overflow-hidden">
@@ -22,13 +24,9 @@ const HeroSection = () => {
           <br />
           хочется жить.
         </h1>
-        <p className="font-body text-sm sm:text-base text-background/75 max-w-xl mb-10 leading-relaxed">
-          Создаём эстетичные и продуманные пространства
-          <br className="hidden sm:block" /> в Симферополе и на Южном берегу Крыма
-        </p>
-        <div className="flex flex-wrap gap-4">
+        <div className="flex flex-wrap gap-4 mt-10">
           <button
-            onClick={() => navigate("/contacts")}
+            onClick={openQuiz}
             className="h-12 px-8 rounded-sm bg-primary text-primary-foreground font-body text-sm font-medium tracking-wider uppercase hover:bg-primary/90 transition-colors"
           >
             Рассчитать стоимость
