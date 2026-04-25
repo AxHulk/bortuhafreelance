@@ -1,17 +1,61 @@
 import { useState } from "react";
 import { useScrollFadeIn } from "@/hooks/useScrollFadeIn";
 import { Mail, Phone } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
 
 const ContactsSection = () => {
   const ref = useScrollFadeIn();
   const [form, setForm] = useState({ name: "", phone: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setForm({ name: "", phone: "", message: "" });
-    setTimeout(() => setSubmitted(false), 4000);
+    if (submitting) return;
+    setSubmitting(true);
+    try {
+      const submissionId = crypto.randomUUID();
+      const { error } = await supabase.from("contact_submissions").insert({
+        id: submissionId,
+        name: form.name.trim(),
+        phone: form.phone.trim(),
+        message: form.message.trim() || null,
+        user_agent: navigator.userAgent,
+        referrer: document.referrer || null,
+      });
+      if (error) throw error;
+
+      // Fire-and-forget email notification
+      try {
+        await supabase.functions.invoke("send-transactional-email", {
+          body: {
+            templateName: "new-contact-form",
+            idempotencyKey: `contact-form-${submissionId}`,
+            templateData: {
+              name: form.name.trim(),
+              phone: form.phone.trim(),
+              message: form.message.trim(),
+              createdAt: new Date().toLocaleString("ru-RU"),
+              referrer: document.referrer || "",
+              userAgent: navigator.userAgent,
+              submissionId,
+            },
+          },
+        });
+      } catch (emailErr) {
+        console.warn("Email notification failed (submission still saved)", emailErr);
+      }
+
+      setSubmitted(true);
+      setForm({ name: "", phone: "", message: "" });
+      setTimeout(() => setSubmitted(false), 6000);
+    } catch (err) {
+      console.error(err);
+      toast.error("Не удалось отправить заявку. Попробуйте ещё раз.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -58,9 +102,10 @@ const ContactsSection = () => {
             </div>
             <button
               type="submit"
-              className="h-10 px-8 rounded-sm bg-primary text-primary-foreground font-body text-sm font-medium tracking-wide hover:bg-primary/90 transition-colors"
+              disabled={submitting}
+              className="h-10 px-8 rounded-sm bg-primary text-primary-foreground font-body text-sm font-medium tracking-wide hover:bg-primary/90 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              Отправить
+              {submitting ? "Отправляем…" : "Отправить"}
             </button>
             {submitted && (
               <p className="font-body text-sm text-primary">Спасибо! Мы свяжемся с вами в ближайшее время.</p>
