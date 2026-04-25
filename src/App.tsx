@@ -12,6 +12,8 @@ import Process from "./pages/Process.tsx";
 import Contacts from "./pages/Contacts.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import ScrollToTop from "./components/ScrollToTop";
+import { QuizProvider } from "./components/quiz/QuizContext";
+import QuizDialog from "./components/quiz/QuizDialog";
 
 const queryClient = new QueryClient();
 
@@ -21,8 +23,9 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <ScrollToTop />
-        <Routes>
+        <QuizProvider>
+          <ScrollToTop />
+          <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
           <Route path="/portfolio" element={<Portfolio />} />
@@ -32,7 +35,9 @@ const App = () => (
           <Route path="/contacts" element={<Contacts />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
-        </Routes>
+          </Routes>
+          <QuizDialog />
+        </QuizProvider>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

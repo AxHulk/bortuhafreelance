@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 import logo from "@/assets/logo-nf.png";
+import { useQuiz } from "@/components/quiz/QuizContext";
 
 const navItems = [
   { label: "Обо мне", href: "/about", isPage: true },
@@ -15,6 +16,7 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+  const { open: openQuiz } = useQuiz();
 
   const handleNav = (item: typeof navItems[0]) => {
     setIsOpen(false);
@@ -33,7 +35,7 @@ const Header = () => {
 
   const handleCta = () => {
     setIsOpen(false);
-    navigate("/contacts");
+    openQuiz();
   };
 
   return (
