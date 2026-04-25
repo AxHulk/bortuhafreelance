@@ -9,6 +9,7 @@ import LeadMagnetSection from "@/components/LeadMagnetSection";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { localBusinessJsonLd, personJsonLd } from "@/lib/seo";
+import { QuizBanner } from "@/components/quiz/QuizBanner";
 
 const Index = () => {
   return (
@@ -28,6 +29,7 @@ const Index = () => {
       <ReviewsSection />
       <LeadMagnetSection />
       <Footer />
+      <QuizBanner />
     </div>
   );
 };
