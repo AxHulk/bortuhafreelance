@@ -1,19 +1,11 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useScrollFadeIn } from "@/hooks/useScrollFadeIn";
 import leadImg from "@/assets/home-leadmagnet.jpg";
+import { useQuiz } from "@/components/quiz/QuizContext";
 
 const LeadMagnetSection = () => {
   const ref = useScrollFadeIn();
-  const [form, setForm] = useState({ name: "", contact: "" });
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
-    setForm({ name: "", contact: "" });
-    setTimeout(() => setSubmitted(false), 4000);
-  };
+  const { open: openQuiz } = useQuiz();
 
   return (
     <section className="py-24 lg:py-32 bg-foreground">
@@ -28,42 +20,19 @@ const LeadMagnetSection = () => {
               Планируете ремонт
               <br />в Крыму?
             </h2>
+            <p className="font-body text-sm text-background/75 leading-relaxed mb-6">
+              Пройдите интересный опрос, который поможет вам разобраться в своих внутренних желаниях и внешних потребностях.
+            </p>
             <p className="font-body text-sm text-background/70 leading-relaxed mb-8">
-              Скачайте чек-лист: «7 фатальных ошибок при планировке квартиры, которые стоят миллионы»
+              В подарок — авторская статья <span className="text-background">«7 фатальных ошибок при планировке квартиры»</span>, бесплатная консультация и индивидуальное сопровождение сделки.
             </p>
 
-            {!submitted ? (
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <input
-                    type="text"
-                    required
-                    placeholder="Ваше имя"
-                    value={form.name}
-                    onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    className="h-12 px-4 rounded-sm border border-background/20 bg-transparent text-background font-body text-sm placeholder:text-background/40 focus:outline-none focus:ring-1 focus:ring-primary"
-                  />
-                  <input
-                    type="text"
-                    required
-                    placeholder="Телефон или Email"
-                    value={form.contact}
-                    onChange={(e) => setForm({ ...form, contact: e.target.value })}
-                    className="h-12 px-4 rounded-sm border border-background/20 bg-transparent text-background font-body text-sm placeholder:text-background/40 focus:outline-none focus:ring-1 focus:ring-primary"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="w-full sm:w-auto h-12 px-8 rounded-sm bg-primary text-primary-foreground font-body text-sm font-medium tracking-wider uppercase hover:bg-primary/90 transition-colors"
-                >
-                  Получить в Telegram
-                </button>
-              </form>
-            ) : (
-              <p className="font-body text-sm text-primary">
-                Спасибо! Мы отправим чек-лист в ближайшее время.
-              </p>
-            )}
+            <button
+              onClick={openQuiz}
+              className="w-full sm:w-auto h-12 px-8 rounded-sm bg-primary text-primary-foreground font-body text-sm font-medium tracking-wider uppercase hover:bg-primary/90 transition-colors"
+            >
+              Обсудить проект
+            </button>
 
             <p className="font-body text-xs text-background/50 mt-6">
               Или запишитесь на бесплатную консультацию
@@ -80,7 +49,7 @@ const LeadMagnetSection = () => {
           <div className="hidden md:block">
             <img
               src={leadImg}
-              alt="Чек-лист 7 ошибок при планировке"
+              alt="Опрос о вашем интерьерном проекте"
               className="w-full rounded-sm object-cover"
               loading="lazy"
             />
