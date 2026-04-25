@@ -75,7 +75,9 @@ const QuizDialog = () => {
         }
       });
 
+      const leadId = crypto.randomUUID();
       const { error } = await supabase.from("quiz_leads").insert({
+        id: leadId,
         track,
         answers,
         contact_name: contact.name,
@@ -86,6 +88,33 @@ const QuizDialog = () => {
         referrer: document.referrer || null,
       });
       if (error) throw error;
+
+      // Fire-and-forget email notification (don't block success on it)
+      try {
+        const flatAnswers = buildAnswerSummary(steps, answers);
+        const fileUrls = await buildFileUrls(filePaths);
+        await supabase.functions.invoke("send-transactional-email", {
+          body: {
+            templateName: "new-quiz-lead",
+            idempotencyKey: `quiz-lead-${leadId}`,
+            templateData: {
+              trackLabel: track === "residential" ? "Жилое помещение" : "Коммерческое",
+              contactName: contact.name,
+              contactType: contact.type,
+              contactValue: contact.value,
+              createdAt: new Date().toLocaleString("ru-RU"),
+              referrer: document.referrer || "",
+              userAgent: navigator.userAgent,
+              answers: flatAnswers,
+              files: fileUrls,
+              leadId,
+            },
+          },
+        });
+      } catch (emailErr) {
+        console.warn("Email notification failed (lead still saved)", emailErr);
+      }
+
       setDone(true);
     } catch (e: any) {
       toast.error("Не удалось отправить заявку. Попробуйте ещё раз.");
@@ -205,3 +234,57 @@ const TrackPicker = ({ onPick }: { onPick: (t: "residential" | "commercial") => 
 );
 
 export default QuizDialog;
+
+// Build a human-readable [{ label, value }] summary using step/field/option labels
+function buildAnswerSummary(
+  steps: Step[],
+  answers: Record<string, any>,
+): Array<{ label: string; value: string }> {
+  const out: Array<{ label: string; value: string }> = [];
+  for (const step of steps) {
+    for (const field of step.fields) {
+      const raw = answers[field.id];
+      if (raw === undefined || raw === null || raw === "") continue;
+      if (Array.isArray(raw) && raw.length === 0) continue;
+
+      let value = "";
+      const optionLabel = (v: string) =>
+        field.options?.find((o) => o.value === v)?.label ?? v;
+
+      if (field.type === "single") {
+        value = optionLabel(String(raw));
+      } else if (field.type === "multi" || field.type === "tags") {
+        value = Array.isArray(raw) ? raw.map((v) => optionLabel(String(v))).join(", ") : String(raw);
+      } else if (field.type === "files" || field.type === "yesno-files") {
+        // Files are listed separately
+        if (Array.isArray(raw) && raw.length > 0 && typeof raw[0] === "object") {
+          value = JSON.stringify(raw);
+        } else if (Array.isArray(raw)) {
+          continue; // file paths handled in files section
+        } else {
+          value = String(raw);
+        }
+      } else if (field.type === "rooms" || field.type === "family") {
+        value = typeof raw === "object" ? JSON.stringify(raw, null, 2) : String(raw);
+      } else {
+        value = String(raw);
+      }
+
+      if (value) out.push({ label: field.label, value });
+    }
+  }
+  return out;
+}
+
+async function buildFileUrls(paths: string[]): Promise<string[]> {
+  const urls: string[] = [];
+  for (const p of paths) {
+    // strip "quiz-uploads/" prefix if present, since bucket name is "quiz-uploads"
+    const key = p.startsWith("quiz-uploads/") ? p.slice("quiz-uploads/".length) : p;
+    const { data } = await supabase.storage
+      .from("quiz-uploads")
+      .createSignedUrl(key, 60 * 60 * 24 * 7); // 7 days
+    if (data?.signedUrl) urls.push(data.signedUrl);
+  }
+  return urls;
+}
