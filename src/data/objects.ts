@@ -1,4 +1,5 @@
 import { projects, type Project, type ProjectCategory } from "./projects";
+import zhk5KitchenCover from "@/assets/portfolio/zhk-5-element-kitchen/06-overview.png";
 
 export interface PortfolioObject {
   id: string;
@@ -34,6 +35,7 @@ export const curatedObjects: PortfolioObject[] = [
     category: "residential",
     intro:
       "Квартира 75,8 м² в новом ЖК «Пятый элемент» в Симферополе. Проект про современную тёплую палитру, аккуратное зонирование и продуманные сценарии для семьи с тремя детьми.",
+    coverImage: zhk5KitchenCover,
     coverGradient: "from-primary/20 to-secondary/25",
     roomIds: [
       "zhk-5-element-kids-room",
