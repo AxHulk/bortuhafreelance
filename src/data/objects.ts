@@ -6,7 +6,7 @@ export interface PortfolioObject {
   area: string;
   location: string;
   year: string;
-  status: "Реализован" | "Концепт" | "В процессе";
+  status: "Реализован" | "Концепт";
   category: ProjectCategory;
   intro: string;
   coverImage?: string;
@@ -24,19 +24,19 @@ export interface PortfolioObject {
  * automatically as standalone single-room objects (see `getAllObjects()`).
  */
 export const curatedObjects: PortfolioObject[] = [
-  // Example placeholders — populate manually with real groupings:
-  // {
-  //   id: "zhk-pyatiy-element",
-  //   title: "ЖК «Пятый элемент»",
-  //   area: "75,8 м²",
-  //   location: "Симферополь",
-  //   year: "Сдача апрель 2026",
-  //   status: "В процессе",
-  //   category: "residential",
-  //   intro: "Квартира в новом ЖК с продуманным сценарием жизни...",
-  //   coverGradient: "from-primary/20 to-secondary/25",
-  //   roomIds: ["kids-room-balcony", "hallway-zhigulina-roscha"],
-  // },
+  {
+    id: "zhk-pyatiy-element",
+    title: "ЖК «Пятый элемент»",
+    area: "75,8 м²",
+    location: "Симферополь",
+    year: "Сдан в апреле 2026",
+    status: "Реализован",
+    category: "residential",
+    intro:
+      "Квартира 75,8 м² в новом ЖК «Пятый элемент» в Симферополе. Проект про современную тёплую палитру, аккуратное зонирование и продуманные сценарии для семьи с тремя детьми.",
+    coverGradient: "from-primary/20 to-secondary/25",
+    roomIds: ["zhk-5-element-kids-room"],
+  },
 ];
 
 function objectFromRoom(room: Project): PortfolioObject {
@@ -87,5 +87,4 @@ export function getObjectByRoomId(roomId: string): PortfolioObject | undefined {
 export const statusLabels: Record<PortfolioObject["status"], string> = {
   "Реализован": "Реализован",
   "Концепт": "Концепт",
-  "В процессе": "В процессе",
 };
