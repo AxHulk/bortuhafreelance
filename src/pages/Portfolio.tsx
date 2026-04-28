@@ -20,7 +20,7 @@ const filterIcons: Record<string, string> = {
 };
 
 const filters = ["all", "residential", "commercial", "3dviz"] as const;
-const statusFilters = ["all", "Реализован", "В процессе", "Концепт"] as const;
+const statusFilters = ["all", "Реализован", "Концепт"] as const;
 
 const Portfolio = () => {
   const [activeCategory, setActiveCategory] = useState<string>("all");
