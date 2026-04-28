@@ -1,14 +1,20 @@
 import { useParams, Navigate } from "react-router-dom";
-import { getObjectByRoomId } from "@/data/objects";
+import { getObjectById, getObjectByRoomId } from "@/data/objects";
+import ObjectPage from "./ObjectPage";
 
 /**
- * Backward-compat: old URL /portfolio/:id pointed directly to a room.
- * We resolve the owning object and redirect to /portfolio/:objectId/:roomId.
- * If no object owns this id (and it's not itself an object), bounce home.
+ * /portfolio/:id resolves to either an object (new URL) or a room (legacy URL).
+ * - If `id` is an object → render ObjectPage.
+ * - If `id` is a room → redirect to canonical /portfolio/:objectId/:roomId.
+ * - Otherwise → back to /portfolio.
  */
-const PortfolioRoomRedirect = () => {
+const PortfolioObjectOrRoomResolver = () => {
   const { id } = useParams<{ id: string }>();
   if (!id) return <Navigate to="/portfolio" replace />;
+
+  if (getObjectById(id)) {
+    return <ObjectPage />;
+  }
 
   const owner = getObjectByRoomId(id);
   if (owner) {
@@ -17,4 +23,4 @@ const PortfolioRoomRedirect = () => {
   return <Navigate to="/portfolio" replace />;
 };
 
-export default PortfolioRoomRedirect;
+export default PortfolioObjectOrRoomResolver;
