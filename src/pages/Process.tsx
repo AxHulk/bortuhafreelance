@@ -209,6 +209,7 @@ const Process = () => {
       </section>
 
       <Footer />
+      <QuizBanner />
     </div>
   );
 };
