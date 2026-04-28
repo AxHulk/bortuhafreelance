@@ -8,7 +8,8 @@ import RoomCard from "@/components/portfolio/RoomCard";
 import { breadcrumbJsonLd, SITE_URL } from "@/lib/seo";
 
 const ObjectPage = () => {
-  const { objectId } = useParams<{ objectId: string }>();
+  const params = useParams<{ objectId?: string; id?: string }>();
+  const objectId = params.objectId ?? params.id;
   const heroRef = useScrollFadeIn();
   const gridRef = useScrollFadeIn();
 
