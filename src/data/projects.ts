@@ -62,6 +62,10 @@ import zhk5KitchenImg07 from "@/assets/portfolio/zhk-5-element-kitchen/07-kitche
 import zhk5KitchenImg08 from "@/assets/portfolio/zhk-5-element-kitchen/08-sofa-table.png";
 import zhk5KitchenImg09 from "@/assets/portfolio/zhk-5-element-kitchen/09-marble-detail.png";
 
+import zhk5LoggiaImg01 from "@/assets/portfolio/zhk-5-element-loggia/01-seating-window.png";
+import zhk5LoggiaImg02 from "@/assets/portfolio/zhk-5-element-loggia/02-armchair-top.png";
+import zhk5LoggiaImg03 from "@/assets/portfolio/zhk-5-element-loggia/03-window-shelf.png";
+
 export const projects: Project[] = [
   {
     id: "zhk-5-element-kids-room",
@@ -154,6 +158,31 @@ export const projects: Project[] = [
       { src: zhk5KitchenImg03, alt: "Зона гостиной с акцентной реечной стеной и трековым светом" },
       { src: zhk5KitchenImg08, alt: "Раскладной диван и обеденный стол у реечной перегородки" },
       { src: zhk5KitchenImg09, alt: "Деталь: мраморный фартук, чёрный смеситель и тостер SMEG" },
+    ],
+  },
+  {
+    id: "zhk-5-element-loggia",
+    objectId: "zhk-pyatiy-element",
+    title: "Лоджия 3,8 м²",
+    area: "3,8 м²",
+    location: "Симферополь, ЖК «Пятый элемент»",
+    year: "Сдан в апреле 2026",
+    style: "Современный минимализм с элементами роскоши, тёплое дерево и чёрный мрамор",
+    category: "residential",
+    task: "Превратить небольшую лоджию 3,8 м² в уютное и функциональное пространство, где зона хранения соседствует с камерным местом для отдыха.",
+    status: "Реализован",
+    description:
+      "Несмотря на компактные 3,8 м², лоджия стала полноценным продолжением интерьера квартиры — в стиле современного минимализма с лёгкими элементами роскоши. " +
+      "В одной части пространства размещён лаконичный шкаф, который добавляет дополнительные системы хранения и разгружает жилые комнаты. " +
+      "Центром притяжения стало мягкое глубокое кресло с приставным столиком из чёрного мрамора — идеальное место для утреннего кофе или вечернего чтения с видом на город. " +
+      "Эстетика чёрного мрамора на столике эффектно перекликается с отделкой подоконной зоны и откосов из чёрного глянцевого керамогранита: игра фактур и глубокого цвета придаёт интерьеру графичность, визуальную глубину и особый шик. " +
+      "В результате маленькое пространство превратилось в стильную камерную зону, где практичность систем хранения гармонично соседствует с эстетикой релакса. Проект подчёркивает, что даже на 3,8 м² можно создать интерьер с характером и настроением.",
+    coverGradient: "from-primary/20 to-secondary/25",
+    coverImage: zhk5LoggiaImg01,
+    gallery: [
+      { src: zhk5LoggiaImg01, alt: "Лоджия — кресло у панорамного окна с видом на город" },
+      { src: zhk5LoggiaImg02, alt: "Вид сверху на зону отдыха с подушками и мраморным столиком" },
+      { src: zhk5LoggiaImg03, alt: "Деревянная ниша-полка у окна с книгами" },
     ],
   },
 ];
