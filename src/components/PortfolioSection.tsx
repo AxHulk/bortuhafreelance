@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useScrollFadeIn } from "@/hooks/useScrollFadeIn";
 import { projects, categoryLabels } from "@/data/projects";
+import { getObjectByRoomId } from "@/data/objects";
 
 const categories = ["all", "residential", "commercial", "3dviz"] as const;
 
@@ -36,10 +37,15 @@ const PortfolioSection = () => {
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filtered.map((project) => (
+          {filtered.map((project) => {
+            const obj = getObjectByRoomId(project.id);
+            const href = obj
+              ? `/portfolio/${obj.id}/${project.id}`
+              : `/portfolio/${project.id}`;
+            return (
             <Link
               key={project.id}
-              to={`/portfolio/${project.id}`}
+              to={href}
               className="group relative aspect-[4/3] rounded-sm overflow-hidden cursor-pointer block"
             >
               {project.coverImage ? (
@@ -62,7 +68,8 @@ const PortfolioSection = () => {
                 </p>
               </div>
             </Link>
-          ))}
+            );
+          })}
         </div>
 
         <div className="text-center mt-12">

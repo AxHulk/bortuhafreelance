@@ -1,10 +1,11 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useMemo } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { useScrollFadeIn } from "@/hooks/useScrollFadeIn";
-import { projects, categoryLabels, type ProjectCategory } from "@/data/projects";
+import { categoryLabels } from "@/data/projects";
+import { getAllObjects, getRoomsForObject } from "@/data/objects";
+import ObjectCard from "@/components/portfolio/ObjectCard";
 import { breadcrumbJsonLd, SITE_URL } from "@/lib/seo";
 import iconResidential from "@/assets/portfolio-icon-residential.png";
 
@@ -19,31 +20,39 @@ const filterIcons: Record<string, string> = {
 };
 
 const filters = ["all", "residential", "commercial", "3dviz"] as const;
+const statusFilters = ["all", "Реализован", "В процессе", "Концепт"] as const;
 
 const Portfolio = () => {
-  const [active, setActive] = useState<string>("all");
+  const [activeCategory, setActiveCategory] = useState<string>("all");
+  const [activeStatus, setActiveStatus] = useState<string>("all");
   const heroRef = useScrollFadeIn();
   const gridRef = useScrollFadeIn();
 
-  const filtered = active === "all"
-    ? projects
-    : projects.filter((p) => p.category === active);
+  const allObjects = useMemo(() => getAllObjects(), []);
+
+  const filtered = useMemo(() => {
+    return allObjects.filter((o) => {
+      if (activeCategory !== "all" && o.category !== activeCategory) return false;
+      if (activeStatus !== "all" && o.status !== activeStatus) return false;
+      return true;
+    });
+  }, [allObjects, activeCategory, activeStatus]);
 
   const itemListJsonLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    itemListElement: projects.map((p, i) => ({
+    itemListElement: allObjects.map((o, i) => ({
       "@type": "ListItem",
       position: i + 1,
-      url: `${SITE_URL}/portfolio/${p.id}`,
-      name: p.title,
+      url: `${SITE_URL}/portfolio/${o.id}`,
+      name: o.title,
     })),
   };
 
   return (
     <div className="min-h-screen">
       <SEO
-        title="Портфолио — проекты дизайна интерьеров в Крыму"
+        title="Портфолио объектов — дизайн интерьеров в Крыму"
         description="Избранные проекты Наталии Фурсы: жилые интерьеры, коммерческие пространства и 3D-визуализация. Симферополь, ЮБК и онлайн."
         path="/portfolio"
         jsonLd={[
@@ -57,23 +66,26 @@ const Portfolio = () => {
       <Header />
 
       {/* Hero */}
-      <section className="pt-32 pb-16 lg:pt-40 lg:pb-20">
+      <section className="pt-32 pb-12 lg:pt-40 lg:pb-16">
         <div ref={heroRef} className="container mx-auto px-4 lg:px-8 max-w-5xl text-center opacity-0">
-          <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-semibold text-foreground mb-4">
-            Избранные проекты
+          <span className="font-body text-[10px] tracking-[0.3em] uppercase text-primary mb-5 block">
+            Портфолио
+          </span>
+          <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-semibold text-foreground leading-[1.05] mb-5">
+            Объекты, сделанные с вниманием к каждой детали
           </h1>
-          <p className="font-body text-xs tracking-[0.2em] uppercase text-muted-foreground mb-12">
-            Жилые и коммерческие пространства. Симферополь, ЮБК и online.
+          <p className="font-body text-base text-muted-foreground max-w-2xl mx-auto mb-12">
+            Каждый объект — отдельная история. Открывайте, чтобы увидеть помещения, фотографии и описания.
           </p>
 
-          {/* Filters */}
-          <div className="flex flex-wrap justify-center gap-3">
+          {/* Category filters */}
+          <div className="flex flex-wrap justify-center gap-3 mb-4">
             {filters.map((key) => (
               <button
                 key={key}
-                onClick={() => setActive(key)}
+                onClick={() => setActiveCategory(key)}
                 className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-sm text-xs font-body font-medium tracking-wide transition-all ${
-                  active === key
+                  activeCategory === key
                     ? "bg-primary text-primary-foreground shadow-sm"
                     : "bg-transparent border border-border text-muted-foreground hover:border-primary hover:text-primary"
                 }`}
@@ -85,63 +97,44 @@ const Portfolio = () => {
               </button>
             ))}
           </div>
+
+          {/* Status filters */}
+          <div className="flex flex-wrap justify-center gap-2">
+            {statusFilters.map((key) => (
+              <button
+                key={key}
+                onClick={() => setActiveStatus(key)}
+                className={`px-3 py-1.5 rounded-sm text-[11px] font-body tracking-[0.12em] uppercase transition-colors ${
+                  activeStatus === key
+                    ? "text-primary border-b border-primary"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {key === "all" ? "Все статусы" : key}
+              </button>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Grid */}
       <section className="pb-24 lg:pb-32">
         <div ref={gridRef} className="container mx-auto px-4 lg:px-8 max-w-6xl opacity-0">
-          <div className="grid sm:grid-cols-2 gap-6">
-            {filtered.map((project) => (
-              <Link
-                key={project.id}
-                to={`/portfolio/${project.id}`}
-                className="group relative aspect-[4/3] rounded-sm overflow-hidden cursor-pointer block"
-              >
-                {/* Placeholder gradient (will be replaced by real images) */}
-                {project.coverImage ? (
-                  <img
-                    src={project.coverImage}
-                    alt={project.title}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    loading="lazy"
-                  />
-                ) : (
-                  <div className={`absolute inset-0 bg-gradient-to-br ${project.coverGradient}`} />
-                )}
-
-                {/* Title at rest */}
-                <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-foreground/60 to-transparent">
-                  <h3 className="font-heading text-xl font-semibold text-background">
-                    {project.title}, {project.area}
-                  </h3>
-                </div>
-
-                {/* Hover overlay — matching the reference design */}
-                <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/75 transition-all duration-500" />
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  <div className="text-center px-8 py-6 max-w-sm">
-                    <h3 className="font-heading text-2xl sm:text-3xl font-semibold text-background mb-4">
-                      {project.title}
-                    </h3>
-                    <div className="w-12 h-px bg-primary mx-auto mb-4" />
-                    <p className="font-body text-sm text-background/80 mb-1">
-                      Стиль: {project.style}
-                    </p>
-                    <p className="font-body text-sm text-background/80 mb-1">
-                      Задача: {project.task}
-                    </p>
-                    <p className="font-body text-sm text-background/80 mb-6">
-                      Статус: {project.status}
-                    </p>
-                    <span className="inline-flex items-center text-sm font-body font-medium text-primary border-t border-primary/40 pt-3">
-                      Смотреть кейс →
-                    </span>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
+          {filtered.length === 0 ? (
+            <p className="text-center text-muted-foreground font-body py-16">
+              По выбранным фильтрам пока ничего нет.
+            </p>
+          ) : (
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12">
+              {filtered.map((obj) => (
+                <ObjectCard
+                  key={obj.id}
+                  object={obj}
+                  roomCount={getRoomsForObject(obj).length}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </section>
 

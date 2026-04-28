@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useScrollFadeIn } from "@/hooks/useScrollFadeIn";
 import { projects } from "@/data/projects";
+import { getObjectByRoomId } from "@/data/objects";
 
 const HomePortfolioSection = () => {
   const ref = useScrollFadeIn();
@@ -17,10 +18,15 @@ const HomePortfolioSection = () => {
         </h2>
 
         <div className="grid md:grid-cols-3 gap-4 lg:gap-6">
-          {featured.map((project, i) => (
+          {featured.map((project, i) => {
+            const obj = getObjectByRoomId(project.id);
+            const href = obj
+              ? `/portfolio/${obj.id}/${project.id}`
+              : `/portfolio/${project.id}`;
+            return (
             <Link
               key={project.id}
-              to={`/portfolio/${project.id}`}
+              to={href}
               className={`group relative overflow-hidden rounded-sm block ${
                 i === 0 ? "md:row-span-2 aspect-[3/4] md:aspect-auto" : "aspect-[4/3]"
               }`}
@@ -42,7 +48,8 @@ const HomePortfolioSection = () => {
                 </span>
               </div>
             </Link>
-          ))}
+            );
+          })}
         </div>
 
         <div className="text-center mt-12">
