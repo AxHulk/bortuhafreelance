@@ -44,6 +44,14 @@ import zhk5KidsImg07 from "@/assets/portfolio/zhk-5-element-kids/07-room-overvie
 import zhk5KidsImg08 from "@/assets/portfolio/zhk-5-element-kids/08-frontal-view.png";
 import zhk5KidsImg09 from "@/assets/portfolio/zhk-5-element-kids/09-desk-shelving.png";
 
+import zhk5HallImg01 from "@/assets/portfolio/zhk-5-element-hallway/01-wardrobe.png";
+import zhk5HallImg02 from "@/assets/portfolio/zhk-5-element-hallway/02-corridor-view.png";
+import zhk5HallImg03 from "@/assets/portfolio/zhk-5-element-hallway/03-mirror-zone.png";
+import zhk5HallImg04 from "@/assets/portfolio/zhk-5-element-hallway/04-round-mirror.png";
+import zhk5HallImg05 from "@/assets/portfolio/zhk-5-element-hallway/05-mirror-console.png";
+import zhk5HallImg06 from "@/assets/portfolio/zhk-5-element-hallway/06-wardrobe-door.png";
+import zhk5HallImg07 from "@/assets/portfolio/zhk-5-element-hallway/07-passage.png";
+
 export const projects: Project[] = [
   {
     id: "zhk-5-element-kids-room",
@@ -74,6 +82,31 @@ export const projects: Project[] = [
       { src: zhk5KidsImg09, alt: "Рабочее место на двоих с терракотовым стеллажом" },
       { src: zhk5KidsImg01, alt: "Зона ТВ и встроенные системы хранения" },
       { src: zhk5KidsImg05, alt: "Диван у акцентной стены с трековыми светильниками" },
+    ],
+  },
+  {
+    id: "zhk-5-element-hallway",
+    objectId: "zhk-pyatiy-element",
+    title: "Коридор 13,5 м²",
+    area: "13,5 м²",
+    location: "Симферополь, ЖК «Пятый элемент»",
+    year: "Сдан в апреле 2026",
+    style: "Современный минимализм, тёплая нейтральная палитра",
+    category: "residential",
+    task: "Описание задачи появится позже.",
+    status: "Реализован",
+    description:
+      "Описание проекта появится позже.",
+    coverGradient: "from-primary/20 to-secondary/25",
+    coverImage: zhk5HallImg03,
+    gallery: [
+      { src: zhk5HallImg03, alt: "Коридор — вид с круглым зеркалом и консолью" },
+      { src: zhk5HallImg04, alt: "Круглое зеркало с подсветкой и тёмная консоль" },
+      { src: zhk5HallImg05, alt: "Зеркало с отражением гардеробной зоны" },
+      { src: zhk5HallImg01, alt: "Встроенная гардеробная и зона прихожей" },
+      { src: zhk5HallImg06, alt: "Фасады встроенной мебели с реечной фактурой" },
+      { src: zhk5HallImg02, alt: "Перспектива коридора с трековым освещением" },
+      { src: zhk5HallImg07, alt: "Скрытые двери в конце коридора" },
     ],
   },
 ];
