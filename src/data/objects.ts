@@ -41,6 +41,7 @@ export const curatedObjects: PortfolioObject[] = [
       "zhk-5-element-kitchen-living",
       "zhk-5-element-loggia",
       "zhk-5-element-bathroom",
+      "zhk-5-element-bedroom",
     ],
   },
 ];
