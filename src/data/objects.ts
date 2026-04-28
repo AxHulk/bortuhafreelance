@@ -35,7 +35,11 @@ export const curatedObjects: PortfolioObject[] = [
     intro:
       "Квартира 75,8 м² в новом ЖК «Пятый элемент» в Симферополе. Проект про современную тёплую палитру, аккуратное зонирование и продуманные сценарии для семьи с тремя детьми.",
     coverGradient: "from-primary/20 to-secondary/25",
-    roomIds: ["zhk-5-element-kids-room", "zhk-5-element-hallway"],
+    roomIds: [
+      "zhk-5-element-kids-room",
+      "zhk-5-element-hallway",
+      "zhk-5-element-kitchen-living",
+    ],
   },
 ];
 
