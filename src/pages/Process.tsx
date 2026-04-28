@@ -5,6 +5,7 @@ import SEO from "@/components/SEO";
 import { breadcrumbJsonLd, SITE_URL } from "@/lib/seo";
 import { useScrollFadeIn } from "@/hooks/useScrollFadeIn";
 import { ChevronDown } from "lucide-react";
+import { QuizBanner } from "@/components/quiz/QuizBanner";
 import iconBrief from "@/assets/process-icon-brief.png";
 import iconMeasure from "@/assets/process-icon-measure.png";
 import icon3d from "@/assets/process-icon-3d.png";
@@ -208,6 +209,7 @@ const Process = () => {
       </section>
 
       <Footer />
+      <QuizBanner />
     </div>
   );
 };
