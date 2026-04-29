@@ -99,6 +99,16 @@ import zhk5DecHallImg03 from "@/assets/portfolio/zhk-5-element-dec-hallway/03-va
 import zhk5DecHallImg04 from "@/assets/portfolio/zhk-5-element-dec-hallway/04-mirror-door.png";
 import zhk5DecHallImg05 from "@/assets/portfolio/zhk-5-element-dec-hallway/05-wardrobe-frontal.png";
 
+import zhk5DecKitchenImg01 from "@/assets/portfolio/zhk-5-element-dec-kitchen/01-living-dining.png";
+import zhk5DecKitchenImg02 from "@/assets/portfolio/zhk-5-element-dec-kitchen/02-dining-tv.png";
+import zhk5DecKitchenImg03 from "@/assets/portfolio/zhk-5-element-dec-kitchen/03-kitchen-overview.png";
+import zhk5DecKitchenImg04 from "@/assets/portfolio/zhk-5-element-dec-kitchen/04-armchairs-window.png";
+import zhk5DecKitchenImg05 from "@/assets/portfolio/zhk-5-element-dec-kitchen/05-dining-fridge.png";
+import zhk5DecKitchenImg06 from "@/assets/portfolio/zhk-5-element-dec-kitchen/06-kitchen-dining.png";
+import zhk5DecKitchenImg07 from "@/assets/portfolio/zhk-5-element-dec-kitchen/07-dining-chairs.png";
+import zhk5DecKitchenImg08 from "@/assets/portfolio/zhk-5-element-dec-kitchen/08-tv-dining.png";
+import zhk5DecKitchenImg09 from "@/assets/portfolio/zhk-5-element-dec-kitchen/09-kitchen-detail.png";
+
 export const projects: Project[] = [
   {
     id: "zhk-5-element-kids-room",
