@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -7,6 +8,7 @@ import { getObjectById, getRoomsForObject, getObjectByRoomId } from "@/data/obje
 import { useScrollFadeIn } from "@/hooks/useScrollFadeIn";
 import { breadcrumbJsonLd, SITE_URL } from "@/lib/seo";
 import EditorialGallery from "@/components/portfolio/EditorialGallery";
+import Lightbox from "@/components/portfolio/Lightbox";
 
 const ProjectCase = () => {
   const params = useParams<{ objectId?: string; roomId?: string; id?: string }>();
@@ -16,6 +18,7 @@ const ProjectCase = () => {
     ? getObjectById(params.objectId)
     : project ? getObjectByRoomId(project.id) : undefined;
   const infoRef = useScrollFadeIn();
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   if (!project) {
     return (
@@ -117,9 +120,18 @@ const ProjectCase = () => {
       {/* Hero image full-bleed */}
       {heroImage && (
         <section className="mb-2">
-          <div className="aspect-[21/9] w-full overflow-hidden bg-secondary/30">
-            <img src={heroImage.src} alt={heroImage.alt} className="w-full h-full object-cover" />
-          </div>
+          <button
+            type="button"
+            onClick={() => setLightboxIndex(0)}
+            aria-label={`Открыть изображение: ${heroImage.alt}`}
+            className="block w-full aspect-[21/9] overflow-hidden bg-secondary/30 cursor-zoom-in group"
+          >
+            <img
+              src={heroImage.src}
+              alt={heroImage.alt}
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+            />
+          </button>
         </section>
       )}
 
@@ -140,7 +152,11 @@ const ProjectCase = () => {
       {restImages.length > 0 && (
         <section className="pb-8">
           <div className="container mx-auto px-4 lg:px-8 max-w-5xl">
-            <EditorialGallery images={restImages} />
+            <EditorialGallery
+              images={restImages}
+              startOffset={1}
+              onImageClick={(i) => setLightboxIndex(i)}
+            />
           </div>
         </section>
       )}
@@ -245,6 +261,14 @@ const ProjectCase = () => {
       </section>
 
       <Footer />
+
+      {lightboxIndex !== null && (
+        <Lightbox
+          images={project.gallery}
+          startIndex={lightboxIndex}
+          onClose={() => setLightboxIndex(null)}
+        />
+      )}
     </div>
   );
 };
