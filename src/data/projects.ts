@@ -298,7 +298,6 @@ export const projects: Project[] = [
       { src: zhk5DecLivingImg06, alt: "Фронтальный вид на ТВ-зону с подвесной консолью" },
       { src: zhk5DecLivingImg09, alt: "Стеллаж-витрина с подсветкой для медалей и кубков рядом с ТВ-зоной" },
       { src: zhk5DecLivingImg05, alt: "ТВ-зона со стеклянной витриной, шоколадными шторами и креслом буклé" },
-      { src: zhk5DecLivingImg10ETC_PLACEHOLDER, alt: "" },
       { src: zhk5DecLivingImg03, alt: "Рабочая зона у окна: кресло буклé и подвесная консоль с монитором" },
       { src: zhk5DecLivingImg04, alt: "Деталь рабочей зоны: подвесная консоль со скрытым кабель-менеджментом" },
       { src: zhk5DecLivingImg08, alt: "Кресло у окна с шоколадными шторами и центральной люстрой" },
