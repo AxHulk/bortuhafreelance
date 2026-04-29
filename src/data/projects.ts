@@ -83,6 +83,16 @@ import zhk5BedImg06 from "@/assets/portfolio/zhk-5-element-bedroom/06-wardrobe.p
 import zhk5BedImg07 from "@/assets/portfolio/zhk-5-element-bedroom/07-tv-frontal.png";
 import zhk5BedImg08 from "@/assets/portfolio/zhk-5-element-bedroom/08-vanity-table.png";
 
+import zhk5DecLivingImg01 from "@/assets/portfolio/zhk-5-element-dec-living/01-sofa-mural.png";
+import zhk5DecLivingImg02 from "@/assets/portfolio/zhk-5-element-dec-living/02-tv-wall.png";
+import zhk5DecLivingImg03 from "@/assets/portfolio/zhk-5-element-dec-living/03-workspace-sofa.png";
+import zhk5DecLivingImg04 from "@/assets/portfolio/zhk-5-element-dec-living/04-workspace-detail.png";
+import zhk5DecLivingImg05 from "@/assets/portfolio/zhk-5-element-dec-living/05-tv-vitrine.png";
+import zhk5DecLivingImg06 from "@/assets/portfolio/zhk-5-element-dec-living/06-tv-door.png";
+import zhk5DecLivingImg07 from "@/assets/portfolio/zhk-5-element-dec-living/07-sofa-mirror.png";
+import zhk5DecLivingImg08 from "@/assets/portfolio/zhk-5-element-dec-living/08-armchair-window.png";
+import zhk5DecLivingImg09 from "@/assets/portfolio/zhk-5-element-dec-living/09-vitrine-medals.png";
+
 export const projects: Project[] = [
   {
     id: "zhk-5-element-kids-room",
