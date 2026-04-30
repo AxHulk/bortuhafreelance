@@ -137,6 +137,15 @@ import guestLoungeImg06 from "@/assets/portfolio/guest-house-lounge/06-relax-cor
 import guestLoungeImg07 from "@/assets/portfolio/guest-house-lounge/07-workspace-frontal.jpg";
 import guestLoungeImg08 from "@/assets/portfolio/guest-house-lounge/08-shelves-detail.jpg";
 
+import guestHallImg01 from "@/assets/portfolio/guest-house-hall/01-entry-gallery.jpg";
+import guestHallImg02 from "@/assets/portfolio/guest-house-hall/02-changing-wardrobe.jpg";
+import guestHallImg03 from "@/assets/portfolio/guest-house-hall/03-floating-stairs.jpg";
+import guestHallImg04 from "@/assets/portfolio/guest-house-hall/04-upper-hall-cacti.jpg";
+import guestHallImg05 from "@/assets/portfolio/guest-house-hall/05-spa-doors-buckets.jpg";
+import guestHallImg06 from "@/assets/portfolio/guest-house-hall/06-pre-sauna-buckets.jpg";
+import guestHallImg07 from "@/assets/portfolio/guest-house-hall/07-changing-sofa-stairs.jpg";
+import guestHallImg08 from "@/assets/portfolio/guest-house-hall/08-corridor-slats.jpg";
+
 export const projects: Project[] = [
   {
     id: "zhk-5-element-kids-room",
