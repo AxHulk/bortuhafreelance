@@ -1,6 +1,7 @@
 import { projects, type Project, type ProjectCategory } from "./projects";
 import zhk5KitchenCover from "@/assets/portfolio/zhk-5-element-kitchen/06-overview.png";
 import zhk5DecLivingCover from "@/assets/portfolio/zhk-5-element-dec-living/01-sofa-mural.png";
+import guestLoungeCover from "@/assets/portfolio/guest-house-lounge/05-tv-workspace-overview.jpg";
 
 export interface PortfolioObject {
   id: string;
@@ -65,6 +66,22 @@ export const curatedObjects: PortfolioObject[] = [
       "zhk-5-element-dec-kitchen",
       "zhk-5-element-dec-bathroom",
       "zhk-5-element-dec-bedroom",
+    ],
+  },
+  {
+    id: "guest-house-sauna",
+    title: "Гостевой домик с сауной",
+    area: "84,2 м²",
+    location: "Симферополь",
+    year: "Сдан в августе 2025",
+    status: "Реализован",
+    category: "residential",
+    intro:
+      "Гостевой домик с сауной площадью 84,2 м² в мансардном пространстве. Проект про контраст тёплого ореха и графита, продуманные сценарии отдыха после сауны и многофункциональные зоны для гостей.",
+    coverImage: guestLoungeCover,
+    coverGradient: "from-primary/20 to-secondary/25",
+    roomIds: [
+      "guest-house-lounge",
     ],
   },
 ];
