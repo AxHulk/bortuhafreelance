@@ -92,7 +92,7 @@ export const curatedObjects: PortfolioObject[] = [
     id: "fontany-retreat",
     title: "Домик для отдыха «Фонтаны»",
     area: "77,4 м²",
-    location: "Симферополь, Фонтаны",
+    location: "Фонтаны",
     year: "Сдан в феврале 2026",
     status: "Реализован",
     category: "residential",
