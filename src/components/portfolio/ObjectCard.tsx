@@ -50,7 +50,9 @@ const ObjectCard = ({ object, roomCount, size = "default" }: ObjectCardProps) =>
             {object.area}
           </span>
           <span className="font-body text-xs text-primary tracking-wider uppercase opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300">
-            {roomCount > 1 ? `${roomCount} помещений →` : "Смотреть →"}
+            {roomCount > 1
+              ? `${roomCount} ${roomCount >= 2 && roomCount <= 4 ? "помещения" : "помещений"} →`
+              : "Смотреть →"}
           </span>
         </div>
       </div>
