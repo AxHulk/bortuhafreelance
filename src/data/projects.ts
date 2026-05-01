@@ -173,6 +173,12 @@ import fontanyLoungeImg07 from "@/assets/portfolio/fontany-lounge/07-kitchen-win
 import fontanyLoungeImg08 from "@/assets/portfolio/fontany-lounge/08-kitchen-onyx-wood.jpg";
 import fontanyLoungeImg09 from "@/assets/portfolio/fontany-lounge/09-kitchen-glossy-onyx.jpg";
 
+import fontanyBathImg01 from "@/assets/portfolio/fontany-bathroom/01-vanity-pendants.jpg";
+import fontanyBathImg02 from "@/assets/portfolio/fontany-bathroom/02-shower-bench.jpg";
+import fontanyBathImg03 from "@/assets/portfolio/fontany-bathroom/03-fluted-glass-shower.jpg";
+import fontanyBathImg04 from "@/assets/portfolio/fontany-bathroom/04-laundry-louvers.jpg";
+import fontanyBathImg05 from "@/assets/portfolio/fontany-bathroom/05-ethnic-toilet-window.jpg";
+
 export const projects: Project[] = [
   {
     id: "zhk-5-element-kids-room",
