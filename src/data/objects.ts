@@ -2,6 +2,7 @@ import { projects, type Project, type ProjectCategory } from "./projects";
 import zhk5KitchenCover from "@/assets/portfolio/zhk-5-element-kitchen/06-overview.png";
 import zhk5DecLivingCover from "@/assets/portfolio/zhk-5-element-dec-living/01-sofa-mural.png";
 import guestLoungeCover from "@/assets/portfolio/guest-house-lounge/05-tv-workspace-overview.jpg";
+import fontanyLoungeCover from "@/assets/portfolio/fontany-lounge/01-zones-overview.jpg";
 
 export interface PortfolioObject {
   id: string;
@@ -85,6 +86,22 @@ export const curatedObjects: PortfolioObject[] = [
       "guest-house-hall",
       "guest-house-bathroom",
       "guest-house-bedroom",
+    ],
+  },
+  {
+    id: "fontany-retreat",
+    title: "Домик для отдыха «Фонтаны»",
+    area: "77,4 м²",
+    location: "Симферополь, Фонтаны",
+    year: "Сдача в феврале 2026",
+    status: "Концепт",
+    category: "residential",
+    intro:
+      "Домик для отдыха 77,4 м² в районе Фонтаны: персональный ретрит с раздвижными окнами-беседкой, бамбуковыми панелями, кухней с ониксом и ручным барельефом. Пространство, где время замедляется, а интерьер сливается с садом.",
+    coverImage: fontanyLoungeCover,
+    coverGradient: "from-primary/20 to-secondary/25",
+    roomIds: [
+      "fontany-lounge",
     ],
   },
 ];
