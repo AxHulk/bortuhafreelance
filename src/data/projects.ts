@@ -222,6 +222,11 @@ import gagLivImg04 from "@/assets/portfolio/gagarinsky-living-dining/04-dining-t
 import gagLivImg05 from "@/assets/portfolio/gagarinsky-living-dining/05-tv-wall-birds.jpg";
 import gagLivImg06 from "@/assets/portfolio/gagarinsky-living-dining/06-corner-sofa-lounge.jpg";
 
+import gagHallImg01 from "@/assets/portfolio/gagarinsky-hallway/01-mirror-parade.jpg";
+import gagHallImg02 from "@/assets/portfolio/gagarinsky-hallway/02-entry-bench.jpg";
+import gagHallImg03 from "@/assets/portfolio/gagarinsky-hallway/03-storage-system.jpg";
+import gagHallImg04 from "@/assets/portfolio/gagarinsky-hallway/04-corridor-doors.jpg";
+
 export const projects: Project[] = [
   {
     id: "zhk-5-element-kids-room",
