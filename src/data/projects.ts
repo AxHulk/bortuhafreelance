@@ -188,6 +188,16 @@ import fontanyBedImg06 from "@/assets/portfolio/fontany-bedroom/06-bamboo-panels
 import fontanyBedImg07 from "@/assets/portfolio/fontany-bedroom/07-chandelier-wood-texture.jpg";
 import fontanyBedImg08 from "@/assets/portfolio/fontany-bedroom/08-bedside-lamp-detail.jpg";
 
+import urozhKitchenImg01 from "@/assets/portfolio/urozhaynoe-kitchen-living/01-overall-view.jpg";
+import urozhKitchenImg02 from "@/assets/portfolio/urozhaynoe-kitchen-living/02-kitchen-dining-overview.jpg";
+import urozhKitchenImg03 from "@/assets/portfolio/urozhaynoe-kitchen-living/03-kitchen-frontal.jpg";
+import urozhKitchenImg04 from "@/assets/portfolio/urozhaynoe-kitchen-living/04-copper-faucet-detail.jpg";
+import urozhKitchenImg05 from "@/assets/portfolio/urozhaynoe-kitchen-living/05-dining-sconce.jpg";
+import urozhKitchenImg06 from "@/assets/portfolio/urozhaynoe-kitchen-living/06-living-sofa-windows.jpg";
+import urozhKitchenImg07 from "@/assets/portfolio/urozhaynoe-kitchen-living/07-living-bookshelf.jpg";
+import urozhKitchenImg08 from "@/assets/portfolio/urozhaynoe-kitchen-living/08-vinyl-station.jpg";
+import urozhKitchenImg09 from "@/assets/portfolio/urozhaynoe-kitchen-living/09-projector-evening.jpg";
+
 export const projects: Project[] = [
   {
     id: "zhk-5-element-kids-room",
