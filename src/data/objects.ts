@@ -122,6 +122,7 @@ export const curatedObjects: PortfolioObject[] = [
     roomIds: [
       "urozhaynoe-kitchen-living",
       "urozhaynoe-bedroom",
+      "urozhaynoe-bathroom",
     ],
   },
 ];
