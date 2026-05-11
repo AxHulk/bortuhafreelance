@@ -198,6 +198,15 @@ import urozhKitchenImg07 from "@/assets/portfolio/urozhaynoe-kitchen-living/07-l
 import urozhKitchenImg08 from "@/assets/portfolio/urozhaynoe-kitchen-living/08-vinyl-station.jpg";
 import urozhKitchenImg09 from "@/assets/portfolio/urozhaynoe-kitchen-living/09-projector-evening.jpg";
 
+import urozhBedImg01 from "@/assets/portfolio/urozhaynoe-bedroom/01-bed-overview.jpg";
+import urozhBedImg02 from "@/assets/portfolio/urozhaynoe-bedroom/02-bed-frontal.jpg";
+import urozhBedImg03 from "@/assets/portfolio/urozhaynoe-bedroom/03-wardrobe-glass.jpg";
+import urozhBedImg04 from "@/assets/portfolio/urozhaynoe-bedroom/04-wardrobe-detail.jpg";
+import urozhBedImg05 from "@/assets/portfolio/urozhaynoe-bedroom/05-art-shelving.jpg";
+import urozhBedImg06 from "@/assets/portfolio/urozhaynoe-bedroom/06-noir-corner.jpg";
+import urozhBedImg07 from "@/assets/portfolio/urozhaynoe-bedroom/07-vanity-niche.jpg";
+import urozhBedImg08 from "@/assets/portfolio/urozhaynoe-bedroom/08-vanity-mirror-detail.jpg";
+
 export const projects: Project[] = [
   {
     id: "zhk-5-element-kids-room",
