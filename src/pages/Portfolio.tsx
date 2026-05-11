@@ -20,11 +20,9 @@ const filterIcons: Record<string, string> = {
 };
 
 const filters = ["all", "residential", "commercial", "3dviz"] as const;
-const statusFilters = ["all", "Реализован", "Концепт"] as const;
 
 const Portfolio = () => {
   const [activeCategory, setActiveCategory] = useState<string>("all");
-  const [activeStatus, setActiveStatus] = useState<string>("all");
   const heroRef = useScrollFadeIn();
   const gridRef = useScrollFadeIn();
 
@@ -33,10 +31,9 @@ const Portfolio = () => {
   const filtered = useMemo(() => {
     return allObjects.filter((o) => {
       if (activeCategory !== "all" && o.category !== activeCategory) return false;
-      if (activeStatus !== "all" && o.status !== activeStatus) return false;
       return true;
     });
-  }, [allObjects, activeCategory, activeStatus]);
+  }, [allObjects, activeCategory]);
 
   const itemListJsonLd = {
     "@context": "https://schema.org",
@@ -79,7 +76,7 @@ const Portfolio = () => {
           </p>
 
           {/* Category filters */}
-          <div className="flex flex-wrap justify-center gap-3 mb-4">
+          <div className="flex flex-wrap justify-center gap-3">
             {filters.map((key) => (
               <button
                 key={key}
@@ -94,23 +91,6 @@ const Portfolio = () => {
                   <img src={filterIcons[key]} alt="" className="w-4 h-4 object-contain" />
                 )}
                 {categoryLabels[key]}
-              </button>
-            ))}
-          </div>
-
-          {/* Status filters */}
-          <div className="flex flex-wrap justify-center gap-2">
-            {statusFilters.map((key) => (
-              <button
-                key={key}
-                onClick={() => setActiveStatus(key)}
-                className={`px-3 py-1.5 rounded-sm text-[11px] font-body tracking-[0.12em] uppercase transition-colors ${
-                  activeStatus === key
-                    ? "text-primary border-b border-primary"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                {key === "all" ? "Все статусы" : key}
               </button>
             ))}
           </div>
