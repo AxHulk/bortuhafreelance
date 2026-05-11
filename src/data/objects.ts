@@ -3,6 +3,7 @@ import zhk5KitchenCover from "@/assets/portfolio/zhk-5-element-kitchen/06-overvi
 import zhk5DecLivingCover from "@/assets/portfolio/zhk-5-element-dec-living/01-sofa-mural.png";
 import guestLoungeCover from "@/assets/portfolio/guest-house-lounge/05-tv-workspace-overview.jpg";
 import fontanyLoungeCover from "@/assets/portfolio/fontany-lounge/01-zones-overview.jpg";
+import urozhKitchenCover from "@/assets/portfolio/urozhaynoe-kitchen-living/01-overall-view.jpg";
 
 export interface PortfolioObject {
   id: string;
@@ -104,6 +105,22 @@ export const curatedObjects: PortfolioObject[] = [
       "fontany-lounge",
       "fontany-bathroom",
       "fontany-bedroom",
+    ],
+  },
+  {
+    id: "urozhaynoe-house",
+    title: "Частный дом в с. Урожайное",
+    area: "100 м²",
+    location: "с. Урожайное",
+    year: "Сдача в апреле 2026",
+    status: "Концепт",
+    category: "residential",
+    intro:
+      "Частный дом 100 м² в селе Урожайное: интерьер для семьи меломанов и киноманов, где современная классика встречается с винилом, скрытым домашним кинотеатром и продуманной геометрией света.",
+    coverImage: urozhKitchenCover,
+    coverGradient: "from-primary/20 to-secondary/25",
+    roomIds: [
+      "urozhaynoe-kitchen-living",
     ],
   },
 ];
