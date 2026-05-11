@@ -121,6 +121,7 @@ export const curatedObjects: PortfolioObject[] = [
     coverGradient: "from-primary/20 to-secondary/25",
     roomIds: [
       "urozhaynoe-kitchen-living",
+      "urozhaynoe-bedroom",
     ],
   },
 ];
