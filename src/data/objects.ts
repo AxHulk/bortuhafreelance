@@ -4,6 +4,7 @@ import zhk5DecLivingCover from "@/assets/portfolio/zhk-5-element-dec-living/01-s
 import guestLoungeCover from "@/assets/portfolio/guest-house-lounge/05-tv-workspace-overview.jpg";
 import fontanyLoungeCover from "@/assets/portfolio/fontany-lounge/01-zones-overview.jpg";
 import urozhKitchenCover from "@/assets/portfolio/urozhaynoe-kitchen-living/01-overall-view.jpg";
+import gagLivCover from "@/assets/portfolio/gagarinsky-living-dining/02-dining-overview-vitrine.jpg";
 
 export interface PortfolioObject {
   id: string;
@@ -123,6 +124,22 @@ export const curatedObjects: PortfolioObject[] = [
       "urozhaynoe-kitchen-living",
       "urozhaynoe-bedroom",
       "urozhaynoe-bathroom",
+    ],
+  },
+  {
+    id: "gagarinsky",
+    title: "ЖК «Гагаринский»",
+    area: "",
+    location: "Симферополь",
+    year: "Сдан в марте 2026",
+    status: "Реализован",
+    category: "residential",
+    intro:
+      "Квартира в ЖК «Гагаринский» в Симферополе: эстетика современной роскоши с обоями ручной росписи, орехом и латунными акцентами. Проект про воздух, масштаб и ювелирную работу с деталями.",
+    coverImage: gagLivCover,
+    coverGradient: "from-primary/20 to-secondary/25",
+    roomIds: [
+      "gagarinsky-living-dining",
     ],
   },
 ];
