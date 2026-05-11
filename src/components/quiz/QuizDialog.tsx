@@ -115,6 +115,16 @@ const QuizDialog = () => {
         console.warn("Email notification failed (lead still saved)", emailErr);
       }
 
+      // Yandex.Metrika goal — quiz submitted
+      try {
+        // @ts-ignore
+        if (typeof window !== "undefined" && typeof (window as any).ym === "function") {
+          (window as any).ym(109143239, "reachGoal", "quiz_submit", { track });
+        }
+      } catch (ymErr) {
+        console.warn("Yandex.Metrika goal failed", ymErr);
+      }
+
       setDone(true);
     } catch (e: any) {
       toast.error("Не удалось отправить заявку. Попробуйте ещё раз.");
