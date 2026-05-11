@@ -129,7 +129,7 @@ export const curatedObjects: PortfolioObject[] = [
   {
     id: "gagarinsky",
     title: "ЖК «Гагаринский»",
-    area: "",
+    area: "60 м²",
     location: "Симферополь",
     year: "Сдан в марте 2026",
     status: "Реализован",
@@ -140,6 +140,7 @@ export const curatedObjects: PortfolioObject[] = [
     coverGradient: "from-primary/20 to-secondary/25",
     roomIds: [
       "gagarinsky-living-dining",
+      "gagarinsky-hallway",
     ],
   },
 ];
