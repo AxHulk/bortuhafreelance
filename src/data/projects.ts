@@ -215,6 +215,13 @@ import urozhBathImg05 from "@/assets/portfolio/urozhaynoe-bathroom/05-shower-her
 import urozhBathImg06 from "@/assets/portfolio/urozhaynoe-bathroom/06-vanity-mirror.jpg";
 import urozhBathImg07 from "@/assets/portfolio/urozhaynoe-bathroom/07-toilet-wardrobe.jpg";
 
+import gagLivImg01 from "@/assets/portfolio/gagarinsky-living-dining/01-dining-bird-decor.jpg";
+import gagLivImg02 from "@/assets/portfolio/gagarinsky-living-dining/02-dining-overview-vitrine.jpg";
+import gagLivImg03 from "@/assets/portfolio/gagarinsky-living-dining/03-vitrine-detail.jpg";
+import gagLivImg04 from "@/assets/portfolio/gagarinsky-living-dining/04-dining-tv-tandem.jpg";
+import gagLivImg05 from "@/assets/portfolio/gagarinsky-living-dining/05-tv-wall-birds.jpg";
+import gagLivImg06 from "@/assets/portfolio/gagarinsky-living-dining/06-corner-sofa-lounge.jpg";
+
 export const projects: Project[] = [
   {
     id: "zhk-5-element-kids-room",
