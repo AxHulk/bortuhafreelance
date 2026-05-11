@@ -207,6 +207,14 @@ import urozhBedImg06 from "@/assets/portfolio/urozhaynoe-bedroom/06-noir-corner.
 import urozhBedImg07 from "@/assets/portfolio/urozhaynoe-bedroom/07-vanity-niche.jpg";
 import urozhBedImg08 from "@/assets/portfolio/urozhaynoe-bedroom/08-vanity-mirror-detail.jpg";
 
+import urozhBathImg01 from "@/assets/portfolio/urozhaynoe-bathroom/01-overview-bath-vanity.jpg";
+import urozhBathImg02 from "@/assets/portfolio/urozhaynoe-bathroom/02-bath-shower-zone.jpg";
+import urozhBathImg03 from "@/assets/portfolio/urozhaynoe-bathroom/03-shower-detail.jpg";
+import urozhBathImg04 from "@/assets/portfolio/urozhaynoe-bathroom/04-bath-toilet-view.jpg";
+import urozhBathImg05 from "@/assets/portfolio/urozhaynoe-bathroom/05-shower-herringbone.jpg";
+import urozhBathImg06 from "@/assets/portfolio/urozhaynoe-bathroom/06-vanity-mirror.jpg";
+import urozhBathImg07 from "@/assets/portfolio/urozhaynoe-bathroom/07-toilet-wardrobe.jpg";
+
 export const projects: Project[] = [
   {
     id: "zhk-5-element-kids-room",
