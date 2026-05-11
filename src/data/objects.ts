@@ -111,7 +111,7 @@ export const curatedObjects: PortfolioObject[] = [
     id: "urozhaynoe-house",
     title: "Частный дом за городом",
     area: "100 м²",
-    location: "За городом",
+    location: "Урожайное",
     year: "Сдан в мае 2026",
     status: "Реализован",
     category: "residential",
