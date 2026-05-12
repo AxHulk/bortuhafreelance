@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { useScrollFadeIn } from "@/hooks/useScrollFadeIn";
 import { personJsonLd, breadcrumbJsonLd, SITE_URL } from "@/lib/seo";
-import aboutHero from "@/assets/about-hero.jpg";
+import aboutHero from "@/assets/natali-fursa-portrait.jpg";
 import iconPrecision from "@/assets/icon-precision.png";
 import iconElegance from "@/assets/icon-elegance.png";
 import iconDialogue from "@/assets/icon-dialogue.png";
@@ -66,11 +66,12 @@ const About = () => {
 
             {/* Illustration */}
             <div className="relative">
-              <div className="rounded-sm overflow-hidden shadow-lg">
+              <div className="rounded-sm overflow-hidden shadow-lg aspect-[4/5]">
                 <img
                   src={aboutHero}
-                  alt="Рабочее пространство дизайнера — чертежи, материалы, инструменты"
-                  className="w-full h-auto object-cover"
+                  alt="Наталия Фурса — дизайнер интерьеров, Симферополь"
+                  className="w-full h-full object-cover object-top"
+                  loading="eager"
                 />
               </div>
               {/* Decorative gold corner */}
