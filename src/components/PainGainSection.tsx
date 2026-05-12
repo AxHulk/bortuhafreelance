@@ -40,8 +40,8 @@ const PainGainSection = () => {
             <div className="border border-border p-2 rounded-sm">
               <img
                 src={painImg}
-                alt="Наталия Фурса — дизайнер интерьеров"
-                className="w-full aspect-[4/5] object-cover object-top rounded-sm"
+                alt="Дизайнер за работой — чертежи и материалы"
+                className="w-full aspect-[4/5] object-cover object-right rounded-sm"
               />
             </div>
           </div>
