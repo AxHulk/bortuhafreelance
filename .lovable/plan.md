@@ -1,66 +1,64 @@
-## Задача
+## Что сделать
 
-Сейчас в галерее каждой комнаты миниатюры используют `object-cover` с фиксированным соотношением сторон (16/9 для full-width и 4/5 для парных) — поэтому края изображений обрезаются. Нужно:
+Добавить файл `public/.htaccess` с правилами SPA-fallback для Apache (хостинг рег.ру Host-0). Vite автоматически копирует всё из `public/` в корень `dist/` при сборке, поэтому после следующего деплоя файл окажется на хостинге рядом с `index.html`.
 
-1. Сохранить миниатюры на странице (макет журнала остаётся как есть).
-2. По клику на любое фото открывать **полноэкранный лайтбокс**, где изображение показывается целиком (`object-contain`, без обрезки).
-3. В лайтбоксе можно листать **только фото текущей комнаты** (включая hero) — стрелки ◀/▶, клавиатура (←/→/Esc), свайп на мобильных.
+## Содержимое `public/.htaccess`
 
-## Что меняем
+```apache
+# SPA fallback для React Router (BrowserRouter)
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
 
-### 1. Новый компонент `src/components/portfolio/Lightbox.tsx`
-Полноэкранное модальное окно:
-- Фон — затемнение `bg-foreground/95` с blur.
-- Изображение по центру: `max-h-[90vh] max-w-[95vw] object-contain` — никакой обрезки, разные пропорции корректно умещаются.
-- Подпись (`alt`) под фото мелким курсивом, как сейчас в галерее.
-- Счётчик `3 / 9` в правом верхнем углу.
-- Кнопка закрытия (×) в правом верхнем; клик по фону тоже закрывает.
-- Стрелки ◀ ▶ слева/справа (скрыты, если 1 изображение).
-- Управление с клавиатуры: `Esc` — закрыть, `←`/`→` — листать (только если лайтбокс открыт).
-- Свайп: лёгкий обработчик `touchstart`/`touchend` по разнице X.
-- При открытии блокируется скролл body (`overflow: hidden`); восстанавливается при закрытии.
-- Префетч соседних изображений (`new Image().src = next/prev`) для мгновенной перелистки.
+  # Реальные файлы и папки отдаём как есть
+  # (assets, sitemap.xml, robots.txt, favicon и т.д.)
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
 
-Props:
-```ts
-{
-  images: ProjectImage[];
-  startIndex: number;
-  onClose: () => void;
-}
+  # Всё остальное — на index.html, роутинг разрулит React
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+# Корректные MIME-типы (на всякий случай)
+<IfModule mod_mime.c>
+  AddType application/javascript          .js .mjs
+  AddType text/css                        .css
+  AddType image/svg+xml                   .svg
+  AddType application/json                .json
+  AddType application/manifest+json       .webmanifest
+  AddType image/webp                      .webp
+  AddType image/avif                      .avif
+  AddType font/woff2                      .woff2
+</IfModule>
+
+# Сжатие
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
+</IfModule>
+
+# Кэширование статики (хэшируется Vite — можно агрессивно)
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html                 "access plus 0 seconds"
+  ExpiresByType text/css                  "access plus 1 year"
+  ExpiresByType application/javascript    "access plus 1 year"
+  ExpiresByType image/jpeg                "access plus 1 year"
+  ExpiresByType image/png                 "access plus 1 year"
+  ExpiresByType image/webp                "access plus 1 year"
+  ExpiresByType image/svg+xml             "access plus 1 month"
+  ExpiresByType font/woff2                "access plus 1 year"
+</IfModule>
 ```
 
-### 2. Правки в `src/components/portfolio/EditorialGallery.tsx`
-- Принимает дополнительно колбэк `onImageClick(index: number)` И **полный** список `allImages` (с hero) — чтобы индексы для лайтбокса были правильные.
-- Каждой `<figure>` оборачиваем содержимое в `<button type="button">` с `cursor-zoom-in`, при клике вызываем `onImageClick(globalIndex)`.
-- Хелпер считает глобальный индекс: т.к. галерея получает `restImages` (без hero), внутри добавляем `+1` к индексу для лайтбокса. Чище — передавать `startOffset = 1`.
+## Важные нюансы
 
-### 3. Правки в `src/pages/ProjectCase.tsx`
-- Локальный state `const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);`
-- Hero `<img>` оборачиваем в кнопку → `setLightboxIndex(0)`, добавляем `cursor-zoom-in`.
-- В `<EditorialGallery>` передаём `onImageClick={(i) => setLightboxIndex(i)}` (с правильным офсетом для hero).
-- Снизу страницы рендерим:
-```tsx
-{lightboxIndex !== null && (
-  <Lightbox
-    images={project.gallery}
-    startIndex={lightboxIndex}
-    onClose={() => setLightboxIndex(null)}
-  />
-)}
-```
-- Лайтбокс работает только с `project.gallery` текущей комнаты — между комнатами не переключает (для этого остаётся секция Prev/Next внизу страницы).
+- Роутер пока остаётся `HashRouter` — не трогаем. Это отдельный шаг: сначала вы заливаете сборку с `.htaccess`, проверяете, что `/portfolio` и F5 работают, и только потом я переключаю на `BrowserRouter` отдельным запросом.
+- Vite копирует `public/` как есть, включая dot-файлы (`.htaccess`). Никаких изменений в `vite.config.ts` не нужно.
+- Если ваш GitHub Actions деплой использует `actions/checkout` + загружает `dist/` — `.htaccess` поедет. Если деплоится только содержимое `dist/`, тоже всё ок.
 
-### 4. Доступность и UX
-- `role="dialog"`, `aria-modal="true"`, `aria-label="Просмотр изображения"`.
-- На кнопке-обёртке миниатюры — `aria-label="Открыть изображение: {alt}"`.
-- Фокус-ловушка простая: при открытии фокус на кнопке закрытия; при закрытии возвращаем фокус на нажатую миниатюру (через `useRef` массив).
+## Проверка после деплоя
 
-## Что НЕ трогаем
-- Дизайн страницы и журнальный макет миниатюр — без изменений.
-- Категории, сетки на странице портфолио и карточки объектов.
-- Чертежи (`project.blueprints`) — в этой итерации лайтбокс к ним не подключаем (можно добавить отдельным шагом, если попросишь).
-
-## Результат
-- Миниатюры остаются красивыми кадрированными плитками для ритма страницы.
-- Один клик — фото открывается целиком, листается стрелками/свайпом строго в рамках комнаты, закрывается Esc/× /кликом по фону.
+1. Открыть `https://designfursa.ru/portfolio` напрямую — должна открыться страница портфолио (а не 404).
+2. Перейти в любой раздел и нажать F5 — страница перезагружается без ошибки.
+3. Только после успешной проверки — отдельным запросом переключаем `HashRouter` → `BrowserRouter`.
