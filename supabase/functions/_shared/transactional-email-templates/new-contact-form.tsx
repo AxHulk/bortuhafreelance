@@ -34,7 +34,9 @@ const NewContactFormEmail = ({
   submissionId = '',
 }: NewContactFormProps) => (
   <Html lang="ru" dir="ltr">
-    <Head />
+    <Head>
+      <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+    </Head>
     <Preview>Новая заявка с формы контактов: {name}</Preview>
     <Body style={main}>
       <Container style={container}>
