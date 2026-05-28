@@ -262,20 +262,55 @@ function buildAnswerSummary(
         field.options?.find((o) => o.value === v)?.label ?? v;
 
       if (field.type === "single") {
-        value = optionLabel(String(raw));
+        if (raw && typeof raw === "object" && "value" in raw) {
+          const base = optionLabel(String((raw as any).value));
+          const other = (raw as any).other?.toString().trim();
+          value = other ? `${base} — ${other}` : base;
+        } else {
+          value = optionLabel(String(raw));
+        }
       } else if (field.type === "multi" || field.type === "tags") {
-        value = Array.isArray(raw) ? raw.map((v) => optionLabel(String(v))).join(", ") : String(raw);
+        if (Array.isArray(raw)) {
+          value = raw.map((v) => optionLabel(String(v))).join(", ");
+        } else if (raw && typeof raw === "object") {
+          const values: string[] = Array.isArray((raw as any).values) ? (raw as any).values : [];
+          const labels = values
+            .filter((v) => v !== "__other__")
+            .map((v) => optionLabel(String(v)));
+          const other = (raw as any).other?.toString().trim();
+          if (other) labels.push(`другое: ${other}`);
+          value = labels.join(", ");
+        } else {
+          value = String(raw);
+        }
       } else if (field.type === "files" || field.type === "yesno-files") {
-        // Files are listed separately
-        if (Array.isArray(raw) && raw.length > 0 && typeof raw[0] === "object") {
-          value = JSON.stringify(raw);
-        } else if (Array.isArray(raw)) {
+        // Files are listed separately in the email; only emit a short status here.
+        if (Array.isArray(raw)) {
           continue; // file paths handled in files section
+        }
+        if (raw && typeof raw === "object") {
+          const has = (raw as any).has;
+          const files = Array.isArray((raw as any).files) ? (raw as any).files : [];
+          const parts: string[] = [];
+          if (has === true) parts.push("Да");
+          else if (has === false) parts.push("Нет");
+          if (files.length) parts.push(`файлов: ${files.length}`);
+          value = parts.join(", ");
         } else {
           value = String(raw);
         }
       } else if (field.type === "rooms" || field.type === "family") {
-        value = typeof raw === "object" ? JSON.stringify(raw, null, 2) : String(raw);
+        if (field.type === "family" && raw && typeof raw === "object") {
+          const f = raw as any;
+          const parts: string[] = [];
+          if (f.adults?.toString().trim()) parts.push(`взрослые: ${f.adults}`);
+          if (f.kids?.toString().trim()) parts.push(`дети: ${f.kids}`);
+          if (f.pets?.toString().trim()) parts.push(`питомцы: ${f.pets}`);
+          if (f.growing) parts.push("планируется пополнение");
+          value = parts.join("; ");
+        } else {
+          value = String(raw);
+        }
       } else {
         value = String(raw);
       }

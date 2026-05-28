@@ -46,7 +46,9 @@ const NewQuizLeadEmail = ({
   leadId = '',
 }: NewQuizLeadProps) => (
   <Html lang="ru" dir="ltr">
-    <Head />
+    <Head>
+      <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+    </Head>
     <Preview>Новая заявка с опросника: {contactName} ({trackLabel})</Preview>
     <Body style={main}>
       <Container style={container}>
