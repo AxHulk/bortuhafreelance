@@ -11,8 +11,10 @@ import case1Before from "@/assets/ai-viz/case-1-before.jpg";
 import case1After from "@/assets/ai-viz/case-1-after.png";
 import case2Before from "@/assets/ai-viz/case-2-before.jpg";
 import case2After from "@/assets/ai-viz/case-2-after.png";
-import case3Before from "@/assets/ai-viz/case-3-before.jpg";
-import case3After from "@/assets/ai-viz/case-3-after.jpg";
+import case3Img1 from "@/assets/ai-viz/case-3-1.png";
+import case3Img2 from "@/assets/ai-viz/case-3-2.png";
+import case3Img3 from "@/assets/ai-viz/case-3-3.png";
+import case3Img4 from "@/assets/ai-viz/case-3-4.png";
 import case4Before from "@/assets/ai-viz/case-4-before.jpg";
 import case4After from "@/assets/ai-viz/case-4-after.jpg";
 
@@ -30,8 +32,20 @@ const advantages = [
   { icon: Zap, title: "Любые исходники", text: "Фото, чертёж, эскиз от руки, текстовое описание — превращаем в картинку." },
 ];
 
-const cases = [
+type CaseItem = {
+  title: string;
+  tag: string;
+  time: string;
+  summary: string;
+  bullets: string[];
+} & (
+  | { kind: "ba"; before: string; after: string }
+  | { kind: "gallery"; gallery: string[] }
+);
+
+const cases: CaseItem[] = [
   {
+    kind: "ba",
     title: "БУХАREZ + Beerluskoni",
     tag: "Экстерьер · Ритейл",
     time: "8 часов",
@@ -46,6 +60,7 @@ const cases = [
     ],
   },
   {
+    kind: "ba",
     title: "Набережная в Евпатории",
     tag: "Городское пространство",
     time: "3 часа",
@@ -60,20 +75,22 @@ const cases = [
     ],
   },
   {
-    title: "Кофейня в арендуемом павильоне",
-    tag: "Коммерческий интерьер",
+    kind: "gallery",
+    title: "Стильная кофейня в арендуемом пространстве",
+    tag: "Коммерческий интерьер · 3ds Max + ИИ",
     time: "2 дня",
-    before: case3Before,
-    after: case3After,
+    gallery: [case3Img1, case3Img2, case3Img3, case3Img4],
     summary:
-      "Премиальный лофт с «индустриальным шиком» в реальных габаритах помещения и с сохранением существующей каменной кладки и деревянных панелей. Гибрид 3ds Max и нейросетей.",
+      "Камерный лофт с «индустриальным шиком» в реальных габаритах арендуемого павильона — без демонтажа существующей каменной кладки и деревянных панелей. Гибрид точной геометрии 3ds Max и фактур, подобранных нейросетью.",
     bullets: [
-      "Точная геометрия в 3ds Max",
-      "Подбор фактур и света через ИИ",
-      "Экономия на демонтаже отделки",
+      "Точная геометрия и эргономика в 3ds Max",
+      "Фактуры бетона, дерева и свет — через ИИ",
+      "Сохранили существующую отделку — экономия на ремонте",
+      "Зонирование, неон и сценарный свет для «инстаграмности»",
     ],
   },
   {
+    kind: "ba",
     title: "Торговый павильон",
     tag: "Барная стойка + неон",
     time: "4 часа",
