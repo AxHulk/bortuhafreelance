@@ -11,8 +11,10 @@ import case1Before from "@/assets/ai-viz/case-1-before.jpg";
 import case1After from "@/assets/ai-viz/case-1-after.png";
 import case2Before from "@/assets/ai-viz/case-2-before.jpg";
 import case2After from "@/assets/ai-viz/case-2-after.png";
-import case3Before from "@/assets/ai-viz/case-3-before.jpg";
-import case3After from "@/assets/ai-viz/case-3-after.jpg";
+import case3Img1 from "@/assets/ai-viz/case-3-1.png";
+import case3Img2 from "@/assets/ai-viz/case-3-2.png";
+import case3Img3 from "@/assets/ai-viz/case-3-3.png";
+import case3Img4 from "@/assets/ai-viz/case-3-4.png";
 import case4Before from "@/assets/ai-viz/case-4-before.jpg";
 import case4After from "@/assets/ai-viz/case-4-after.jpg";
 
@@ -30,8 +32,20 @@ const advantages = [
   { icon: Zap, title: "Любые исходники", text: "Фото, чертёж, эскиз от руки, текстовое описание — превращаем в картинку." },
 ];
 
-const cases = [
+type CaseItem = {
+  title: string;
+  tag: string;
+  time: string;
+  summary: string;
+  bullets: string[];
+} & (
+  | { kind: "ba"; before: string; after: string }
+  | { kind: "gallery"; gallery: string[] }
+);
+
+const cases: CaseItem[] = [
   {
+    kind: "ba",
     title: "БУХАREZ + Beerluskoni",
     tag: "Экстерьер · Ритейл",
     time: "8 часов",
@@ -46,6 +60,7 @@ const cases = [
     ],
   },
   {
+    kind: "ba",
     title: "Набережная в Евпатории",
     tag: "Городское пространство",
     time: "3 часа",
@@ -60,20 +75,22 @@ const cases = [
     ],
   },
   {
-    title: "Кофейня в арендуемом павильоне",
-    tag: "Коммерческий интерьер",
+    kind: "gallery",
+    title: "Стильная кофейня в арендуемом пространстве",
+    tag: "Коммерческий интерьер · 3ds Max + ИИ",
     time: "2 дня",
-    before: case3Before,
-    after: case3After,
+    gallery: [case3Img1, case3Img2, case3Img3, case3Img4],
     summary:
-      "Премиальный лофт с «индустриальным шиком» в реальных габаритах помещения и с сохранением существующей каменной кладки и деревянных панелей. Гибрид 3ds Max и нейросетей.",
+      "Камерный лофт с «индустриальным шиком» в реальных габаритах арендуемого павильона — без демонтажа существующей каменной кладки и деревянных панелей. Гибрид точной геометрии 3ds Max и фактур, подобранных нейросетью.",
     bullets: [
-      "Точная геометрия в 3ds Max",
-      "Подбор фактур и света через ИИ",
-      "Экономия на демонтаже отделки",
+      "Точная геометрия и эргономика в 3ds Max",
+      "Фактуры бетона, дерева и свет — через ИИ",
+      "Сохранили существующую отделку — экономия на ремонте",
+      "Зонирование, неон и сценарный свет для «инстаграмности»",
     ],
   },
   {
+    kind: "ba",
     title: "Торговый павильон",
     tag: "Барная стойка + неон",
     time: "4 часа",
@@ -237,39 +254,63 @@ const AiViz = () => {
                   key={c.title}
                   className={`grid lg:grid-cols-2 gap-8 lg:gap-12 items-center ${isReversed ? "lg:[&>*:first-child]:order-2" : ""}`}
                 >
-                  {/* Image with before/after toggle */}
+                  {/* Image: before/after toggle or gallery */}
                   <div>
-                    <div className="relative aspect-[4/3] rounded-sm overflow-hidden bg-background border border-border group">
-                      <img
-                        src={c.before}
-                        alt={`${c.title} — до`}
-                        loading="lazy"
-                        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${view === "before" ? "opacity-100" : "opacity-0"}`}
-                      />
-                      <img
-                        src={c.after}
-                        alt={`${c.title} — после`}
-                        loading="lazy"
-                        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${view === "after" ? "opacity-100" : "opacity-0"}`}
-                      />
-                      <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-background/90 backdrop-blur-sm border border-border">
-                        <Clock className="w-3 h-3 text-primary" />
-                        <span className="font-body text-[11px] tracking-[0.15em] uppercase text-foreground">{c.time}</span>
+                    {c.kind === "ba" ? (
+                      <div className="relative aspect-[4/3] rounded-sm overflow-hidden bg-background border border-border group">
+                        <img
+                          src={c.before}
+                          alt={`${c.title} — до`}
+                          loading="lazy"
+                          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${view === "before" ? "opacity-100" : "opacity-0"}`}
+                        />
+                        <img
+                          src={c.after}
+                          alt={`${c.title} — после`}
+                          loading="lazy"
+                          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${view === "after" ? "opacity-100" : "opacity-0"}`}
+                        />
+                        <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-background/90 backdrop-blur-sm border border-border">
+                          <Clock className="w-3 h-3 text-primary" />
+                          <span className="font-body text-[11px] tracking-[0.15em] uppercase text-foreground">{c.time}</span>
+                        </div>
+                        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 inline-flex p-1 rounded-sm bg-background/95 backdrop-blur-sm border border-border shadow-sm">
+                          {(["before", "after"] as const).map((k) => (
+                            <button
+                              key={k}
+                              onClick={() => setActive((p) => ({ ...p, [i]: k }))}
+                              className={`px-4 py-1.5 text-[11px] font-body font-medium tracking-[0.18em] uppercase rounded-sm transition-colors ${
+                                view === k ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"
+                              }`}
+                            >
+                              {k === "before" ? "До" : "После"}
+                            </button>
+                          ))}
+                        </div>
                       </div>
-                      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 inline-flex p-1 rounded-sm bg-background/95 backdrop-blur-sm border border-border shadow-sm">
-                        {(["before", "after"] as const).map((k) => (
-                          <button
-                            key={k}
-                            onClick={() => setActive((p) => ({ ...p, [i]: k }))}
-                            className={`px-4 py-1.5 text-[11px] font-body font-medium tracking-[0.18em] uppercase rounded-sm transition-colors ${
-                              view === k ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"
-                            }`}
+                    ) : (
+                      <div className="grid grid-cols-2 gap-2 sm:gap-3">
+                        {c.gallery.map((src, idx) => (
+                          <div
+                            key={idx}
+                            className="relative aspect-square rounded-sm overflow-hidden bg-background border border-border group"
                           >
-                            {k === "before" ? "До" : "После"}
-                          </button>
+                            <img
+                              src={src}
+                              alt={`${c.title} — ракурс ${idx + 1}`}
+                              loading="lazy"
+                              className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            />
+                            {idx === 0 && (
+                              <div className="absolute top-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-sm bg-background/90 backdrop-blur-sm border border-border">
+                                <Clock className="w-3 h-3 text-primary" />
+                                <span className="font-body text-[10px] tracking-[0.15em] uppercase text-foreground">{c.time}</span>
+                              </div>
+                            )}
+                          </div>
                         ))}
                       </div>
-                    </div>
+                    )}
                   </div>
 
                   {/* Text */}
