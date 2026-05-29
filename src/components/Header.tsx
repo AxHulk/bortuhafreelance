@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sparkles } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 import logo from "@/assets/logo-nf.png";
 import { useQuiz } from "@/components/quiz/QuizContext";
@@ -57,12 +57,22 @@ const Header = () => {
           ))}
         </nav>
 
-        <button
-          onClick={handleCta}
-          className="hidden lg:inline-flex h-10 px-6 items-center rounded-sm border border-primary bg-transparent text-sm font-body font-medium text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
-        >
-          Обсудить проект
-        </button>
+        <div className="hidden lg:flex items-center gap-3">
+          <button
+            onClick={() => { setIsOpen(false); navigate("/ai-viz"); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+            className="inline-flex h-10 px-4 items-center gap-1.5 rounded-sm bg-primary text-primary-foreground text-sm font-body font-semibold tracking-wide hover:bg-primary/90 transition-colors"
+            title="Нейровизуализация — быстрая AI-визуализация"
+          >
+            <Sparkles className="w-3.5 h-3.5" strokeWidth={2} />
+            ИИ
+          </button>
+          <button
+            onClick={handleCta}
+            className="inline-flex h-10 px-6 items-center rounded-sm border border-primary bg-transparent text-sm font-body font-medium text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
+          >
+            Обсудить проект
+          </button>
+        </div>
 
         <button
           className="lg:hidden text-foreground"
@@ -85,6 +95,12 @@ const Header = () => {
                 {item.label}
               </button>
             ))}
+            <button
+              onClick={() => { setIsOpen(false); navigate("/ai-viz"); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+              className="inline-flex items-center gap-1.5 text-base font-body font-semibold text-primary"
+            >
+              <Sparkles className="w-4 h-4" /> Нейровизуализация (ИИ)
+            </button>
             <button
               onClick={handleCta}
               className="mt-2 h-10 px-6 rounded-sm border border-primary text-sm font-body font-medium text-primary hover:bg-primary hover:text-primary-foreground transition-colors"

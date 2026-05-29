@@ -11,6 +11,7 @@ import PortfolioObjectOrRoomResolver from "./pages/PortfolioRoomRedirect.tsx";
 import Services from "./pages/Services.tsx";
 import Process from "./pages/Process.tsx";
 import Contacts from "./pages/Contacts.tsx";
+import AiViz from "./pages/AiViz.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import ScrollToTop from "./components/ScrollToTop";
 import { QuizProvider } from "./components/quiz/QuizContext";
@@ -35,6 +36,7 @@ const App = () => (
           <Route path="/services" element={<Services />} />
           <Route path="/process" element={<Process />} />
           <Route path="/contacts" element={<Contacts />} />
+          <Route path="/ai-viz" element={<AiViz />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
           </Routes>

@@ -7,6 +7,7 @@ const navItems = [
   { label: "Обо мне", href: "/about" },
   { label: "Портфолио", href: "/portfolio" },
   { label: "Услуги и цены", href: "/services" },
+  { label: "Нейровизуализация", href: "/ai-viz" },
   { label: "Этапы работы", href: "/process" },
   { label: "Контакты", href: "/contacts" },
 ];
