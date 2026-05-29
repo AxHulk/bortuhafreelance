@@ -254,39 +254,63 @@ const AiViz = () => {
                   key={c.title}
                   className={`grid lg:grid-cols-2 gap-8 lg:gap-12 items-center ${isReversed ? "lg:[&>*:first-child]:order-2" : ""}`}
                 >
-                  {/* Image with before/after toggle */}
+                  {/* Image: before/after toggle or gallery */}
                   <div>
-                    <div className="relative aspect-[4/3] rounded-sm overflow-hidden bg-background border border-border group">
-                      <img
-                        src={c.before}
-                        alt={`${c.title} — до`}
-                        loading="lazy"
-                        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${view === "before" ? "opacity-100" : "opacity-0"}`}
-                      />
-                      <img
-                        src={c.after}
-                        alt={`${c.title} — после`}
-                        loading="lazy"
-                        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${view === "after" ? "opacity-100" : "opacity-0"}`}
-                      />
-                      <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-background/90 backdrop-blur-sm border border-border">
-                        <Clock className="w-3 h-3 text-primary" />
-                        <span className="font-body text-[11px] tracking-[0.15em] uppercase text-foreground">{c.time}</span>
+                    {c.kind === "ba" ? (
+                      <div className="relative aspect-[4/3] rounded-sm overflow-hidden bg-background border border-border group">
+                        <img
+                          src={c.before}
+                          alt={`${c.title} — до`}
+                          loading="lazy"
+                          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${view === "before" ? "opacity-100" : "opacity-0"}`}
+                        />
+                        <img
+                          src={c.after}
+                          alt={`${c.title} — после`}
+                          loading="lazy"
+                          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${view === "after" ? "opacity-100" : "opacity-0"}`}
+                        />
+                        <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-sm bg-background/90 backdrop-blur-sm border border-border">
+                          <Clock className="w-3 h-3 text-primary" />
+                          <span className="font-body text-[11px] tracking-[0.15em] uppercase text-foreground">{c.time}</span>
+                        </div>
+                        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 inline-flex p-1 rounded-sm bg-background/95 backdrop-blur-sm border border-border shadow-sm">
+                          {(["before", "after"] as const).map((k) => (
+                            <button
+                              key={k}
+                              onClick={() => setActive((p) => ({ ...p, [i]: k }))}
+                              className={`px-4 py-1.5 text-[11px] font-body font-medium tracking-[0.18em] uppercase rounded-sm transition-colors ${
+                                view === k ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"
+                              }`}
+                            >
+                              {k === "before" ? "До" : "После"}
+                            </button>
+                          ))}
+                        </div>
                       </div>
-                      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 inline-flex p-1 rounded-sm bg-background/95 backdrop-blur-sm border border-border shadow-sm">
-                        {(["before", "after"] as const).map((k) => (
-                          <button
-                            key={k}
-                            onClick={() => setActive((p) => ({ ...p, [i]: k }))}
-                            className={`px-4 py-1.5 text-[11px] font-body font-medium tracking-[0.18em] uppercase rounded-sm transition-colors ${
-                              view === k ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"
-                            }`}
+                    ) : (
+                      <div className="grid grid-cols-2 gap-2 sm:gap-3">
+                        {c.gallery.map((src, idx) => (
+                          <div
+                            key={idx}
+                            className="relative aspect-square rounded-sm overflow-hidden bg-background border border-border group"
                           >
-                            {k === "before" ? "До" : "После"}
-                          </button>
+                            <img
+                              src={src}
+                              alt={`${c.title} — ракурс ${idx + 1}`}
+                              loading="lazy"
+                              className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            />
+                            {idx === 0 && (
+                              <div className="absolute top-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-sm bg-background/90 backdrop-blur-sm border border-border">
+                                <Clock className="w-3 h-3 text-primary" />
+                                <span className="font-body text-[10px] tracking-[0.15em] uppercase text-foreground">{c.time}</span>
+                              </div>
+                            )}
+                          </div>
                         ))}
                       </div>
-                    </div>
+                    )}
                   </div>
 
                   {/* Text */}
