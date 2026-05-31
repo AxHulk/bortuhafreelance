@@ -290,9 +290,6 @@ const AiViz = () => {
         <div ref={casesRef} className="container mx-auto px-4 lg:px-8 max-w-6xl opacity-0">
           <div className="text-center mb-14">
             <p className="font-body text-xs tracking-[0.25em] uppercase text-primary mb-3">Кейсы</p>
-            <h2 className="font-heading text-3xl sm:text-4xl font-semibold text-foreground mb-3">
-              Было · Стало
-            </h2>
             <p className="font-body text-sm text-muted-foreground max-w-xl mx-auto">
               Реальные проекты, согласованные с собственниками, арендодателями и администрацией.
             </p>
