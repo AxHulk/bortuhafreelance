@@ -15,8 +15,10 @@ import case3Img1 from "@/assets/ai-viz/case-3-1.png";
 import case3Img2 from "@/assets/ai-viz/case-3-2.png";
 import case3Img3 from "@/assets/ai-viz/case-3-3.png";
 import case3Img4 from "@/assets/ai-viz/case-3-4.png";
-import case4Before from "@/assets/ai-viz/case-4-before.jpg";
-import case4After from "@/assets/ai-viz/case-4-after.jpg";
+import case4Img1 from "@/assets/ai-viz/case-4-1.jpg";
+import case4Img2 from "@/assets/ai-viz/case-4-2.png";
+import case4Img3 from "@/assets/ai-viz/case-4-3.png";
+import case4Img4 from "@/assets/ai-viz/case-4-4.png";
 
 const audiences = [
   { title: "Бизнес", text: "Кафе, магазины, офисы — согласование вывесок, веранд и реновации с арендодателями и инвесторами." },
@@ -90,18 +92,18 @@ const cases: CaseItem[] = [
     ],
   },
   {
-    kind: "ba",
-    title: "Торговый павильон",
-    tag: "Барная стойка + неон",
+    kind: "gallery",
+    title: "Суши-бар «07» на набережной",
+    tag: "Ребрендинг павильона · Экстерьер + интерьер",
     time: "4 часа",
-    before: case4Before,
-    after: case4After,
+    gallery: [case4Img1, case4Img2, case4Img3, case4Img4],
     summary:
-      "От фото павильона и эскиза от руки — до фотореалистичной визуализации барной стойки, неоновой вывески и декора для согласования с арендодателями.",
+      "Переосмысление существующего павильона у моря: из брутального гриль-бара — в яркий суши-бар с японскими акцентами. На вход — реальное фото объекта, на выходе — фасад с витриной, неоном и проработанный интерьер для согласования с арендодателем.",
     bullets: [
-      "Реальные габариты — проект технически реализуем",
-      "Кастомный неоновый акцент",
-      "Полный цикл за 4 часа",
+      "Сохранили существующий каркас и деревянную отделку",
+      "Новая айдентика, неон и витрина — в реальных габаритах",
+      "Экстерьер и два ракурса интерьера — единый стиль",
+      "От фото до пакета визуализаций — за 4 часа",
     ],
   },
 ];
