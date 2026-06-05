@@ -11,7 +11,7 @@ export const localBusinessJsonLd = {
   name: "Natali Fursa — дизайн интерьеров",
   alternateName: "Наталия Фурса",
   description:
-    "Дизайнер интерьеров Наталия Фурса. Авторские дизайн-проекты жилых и коммерческих пространств в Симферополе и на Южном берегу Крыма.",
+    "Студия дизайна интерьеров Наталии Фурсы: дизайн-проекты квартир и домов, инвестиционный дизайн под сдачу, флиппинг, 3D и AI-визуализация. Симферополь, Севастополь, Ялта, Алушта, Евпатория, Саки.",
   url: SITE_URL,
   image: DEFAULT_OG_IMAGE,
   telephone: "+7-978-540-09-81",
@@ -27,12 +27,28 @@ export const localBusinessJsonLd = {
     { "@type": "City", name: "Симферополь" },
     { "@type": "City", name: "Ялта" },
     { "@type": "City", name: "Севастополь" },
+    { "@type": "City", name: "Алушта" },
+    { "@type": "City", name: "Евпатория" },
+    { "@type": "City", name: "Саки" },
     { "@type": "Place", name: "Южный берег Крыма" },
+    { "@type": "Place", name: "Республика Крым" },
   ],
   sameAs: [
     "https://vk.ru/visfursa",
     "https://www.behance.net/bd28e124",
   ],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Услуги дизайна интерьеров",
+    itemListElement: [
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Дизайн-проект интерьера квартиры и дома" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Инвестиционный дизайн под сдачу и флиппинг" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Премиум дизайн интерьера под ключ" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "3D-визуализация и архитектурная визуализация" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Нейровизуализация (AI-визуализация) интерьеров и фасадов" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Авторский надзор и комплектация объекта" } },
+    ],
+  },
   founder: {
     "@type": "Person",
     name: "Наталия Фурса",
