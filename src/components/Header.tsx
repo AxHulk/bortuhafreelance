@@ -3,6 +3,8 @@ import { Menu, X, Sparkles } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 import logo from "@/assets/logo-nf.png";
 import { useQuiz } from "@/components/quiz/QuizContext";
+import iconVk from "@/assets/icon-vk-3d.png";
+import iconTg from "@/assets/icon-tg-3d.png";
 
 const navItems = [
   { label: "Обо мне", href: "/about", isPage: true },
@@ -58,6 +60,26 @@ const Header = () => {
         </nav>
 
         <div className="hidden lg:flex items-center gap-3">
+          <a
+            href="https://t.me/fursa_ya"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Telegram @fursa_ya"
+            title="Telegram @fursa_ya"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-sm hover:opacity-80 transition-opacity"
+          >
+            <img src={iconTg} alt="Telegram" className="h-7 w-7 object-contain" />
+          </a>
+          <a
+            href="https://vk.com/tshbrtnk"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="ВКонтакте"
+            title="ВКонтакте"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-sm hover:opacity-80 transition-opacity"
+          >
+            <img src={iconVk} alt="ВКонтакте" className="h-7 w-7 object-contain" />
+          </a>
           <button
             onClick={() => { setIsOpen(false); navigate("/ai-viz"); window.scrollTo({ top: 0, behavior: "smooth" }); }}
             className="inline-flex h-10 px-4 items-center gap-1.5 rounded-sm bg-primary text-primary-foreground text-sm font-body font-semibold tracking-wide hover:bg-primary/90 transition-colors"
@@ -95,6 +117,26 @@ const Header = () => {
                 {item.label}
               </button>
             ))}
+            <div className="flex items-center gap-4 pt-2">
+              <a
+                href="https://t.me/fursa_ya"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Telegram @fursa_ya"
+                className="hover:opacity-80 transition-opacity"
+              >
+                <img src={iconTg} alt="Telegram" className="h-8 w-8 object-contain" />
+              </a>
+              <a
+                href="https://vk.com/tshbrtnk"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="ВКонтакте"
+                className="hover:opacity-80 transition-opacity"
+              >
+                <img src={iconVk} alt="ВКонтакте" className="h-8 w-8 object-contain" />
+              </a>
+            </div>
             <button
               onClick={() => { setIsOpen(false); navigate("/ai-viz"); window.scrollTo({ top: 0, behavior: "smooth" }); }}
               className="inline-flex items-center gap-1.5 text-base font-body font-semibold text-primary"
