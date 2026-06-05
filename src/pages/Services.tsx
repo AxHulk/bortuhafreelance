@@ -102,13 +102,28 @@ const Services = () => {
   return (
     <div className="min-h-screen">
       <SEO
-        title="Услуги и цены — дизайн интерьеров"
-        description="Тарифы на дизайн-проекты, 3D-визуализацию, авторский надзор и комплектацию объектов в Симферополе и Крыму. От 2 500 ₽/м²."
+        title="Услуги дизайнера интерьера — цены в Крыму, от 2 500 ₽/м²"
+        description="Дизайн-проект квартиры и дома, инвестиционный дизайн под сдачу и флиппинг, премиум интерьер под ключ, 3D и AI-визуализация, авторский надзор. Симферополь, Севастополь, Ялта, Алушта, Евпатория, Саки."
         path="/services"
-        jsonLd={breadcrumbJsonLd([
-          { name: "Главная", url: `${SITE_URL}/` },
-          { name: "Услуги и цены", url: `${SITE_URL}/services` },
-        ])}
+        jsonLd={[
+          breadcrumbJsonLd([
+            { name: "Главная", url: `${SITE_URL}/` },
+            { name: "Услуги и цены", url: `${SITE_URL}/services` },
+          ]),
+          {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            serviceType: "Дизайн интерьера",
+            provider: { "@type": "ProfessionalService", name: "Natali Fursa" },
+            areaServed: ["Симферополь", "Севастополь", "Ялта", "Алушта", "Евпатория", "Саки", "Республика Крым"],
+            offers: [
+              { "@type": "Offer", name: "Концептуальный дизайн-проект (флиппинг, под сдачу)", price: "2500", priceCurrency: "RUB", priceSpecification: { "@type": "UnitPriceSpecification", price: "2500", priceCurrency: "RUB", unitText: "за м²" } },
+              { "@type": "Offer", name: "Стандартный дизайн-проект квартиры и дома", price: "4000", priceCurrency: "RUB", priceSpecification: { "@type": "UnitPriceSpecification", price: "4000", priceCurrency: "RUB", unitText: "за м²" } },
+              { "@type": "Offer", name: "Премиум дизайн интерьера под ключ", price: "7000", priceCurrency: "RUB", priceSpecification: { "@type": "UnitPriceSpecification", price: "7000", priceCurrency: "RUB", unitText: "за м²" } },
+              { "@type": "Offer", name: "3D-визуализация интерьера", price: "600", priceCurrency: "RUB", priceSpecification: { "@type": "UnitPriceSpecification", price: "600", priceCurrency: "RUB", unitText: "за м²" } },
+            ],
+          },
+        ]}
       />
       <Header />
 
